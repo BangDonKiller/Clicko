@@ -81,18 +81,6 @@ main .helper span {
   transition: all 0.15s linear;
   cursor: pointer;
 }
-/* .menu ul li.icon-dashboard {
-  background-image: url("http://www.entypo.com/images//gauge.svg");
-}
-.menu ul li.icon-customers {
-  background-image: url("http://www.entypo.com/images//briefcase.svg");
-}
-.menu ul li.icon-users {
-  background-image: url("http://www.entypo.com/images//users.svg");
-}
-.menu ul li.icon-settings {
-  background-image: url("http://www.entypo.com/images//tools.svg");
-} */
 .menu ul li:hover {
   background-color: rgba(0, 0, 0, 0.1);
 }
