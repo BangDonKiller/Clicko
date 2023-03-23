@@ -6,13 +6,17 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 function Login({ onSwitchPage, onLogin }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [invalidEmail, setInvalidEmail] = useState(false);
+  const [invalidPassword, setInvalidPassword] = useState(false);
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
+    setInvalidEmail(false);
   };
 
   const handlePasswordChange = (event) => {
     setPassword(event.target.value);
+    setInvalidPassword(false);
   };
 
   const handleSubmit = (event) => {
@@ -27,7 +31,13 @@ function Login({ onSwitchPage, onLogin }) {
       })
       .catch((error) => {
         console.log("error: ", error);
-        alert("Invalid email or password");
+        if (error.code === "auth/invalid-email") {
+          setInvalidEmail(true);
+        } else if (error.code === "auth/wrong-password") {
+          setInvalidPassword(true);
+        } else {
+          alert("Invalid email or password");
+        }
       });
 
     console.log(`Submitted email: ${email}, password: ${password}`);
@@ -44,7 +54,8 @@ function Login({ onSwitchPage, onLogin }) {
         <div className="inputBox">
           <input
             type="text"
-            className="input"
+            // className="input"
+            className={`input ${invalidEmail ? "invalid" : ""}`}
             id="user_login"
             autoComplete="off"
             value={email}
@@ -56,7 +67,8 @@ function Login({ onSwitchPage, onLogin }) {
         <div className="inputBox">
           <input
             type="password"
-            className="input"
+            // className="input"
+            className={`${invalidPassword ? "invalid" : "input"}`}
             id="user_pass_login"
             autoComplete="off"
             value={password}

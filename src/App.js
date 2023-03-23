@@ -1,6 +1,5 @@
 import "./App.css";
 import Profile from "./pages/profile";
-import DashBroad from "./pages/dashboard";
 import "./loader.css";
 import React, { useEffect, useState } from "react";
 import Landing from "./auth/landing";
@@ -43,7 +42,6 @@ function App() {
           {loggedIn ? (
             <div className="main-bg">
               <Profile />
-              {/* <DashBroad /> */}
             </div>
           ) : (
             <div className="App">

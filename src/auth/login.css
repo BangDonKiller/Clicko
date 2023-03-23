@@ -15,7 +15,7 @@
     padding: 10px;
     outline: none;
     border: none;
-    color: #000;
+    /* color: #000; */
     font-size: 1em;
     background: transparent;
     border-left: 2px solid #000;
@@ -40,6 +40,29 @@
     border-radius: 8px;
   }
 
+  .inputBox .invalid {
+    border: 2px solid #ff0000 !important;
+    border-style: solid; 
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+
+  }
+  @keyframes shake {
+    0% {
+      transform: translateX(0);
+    }
+    25% {
+      transform: translateX(10px);
+    }
+    50% {
+      transform: translateX(-10px);
+    }
+    75% {
+      transform: translateX(10px);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
   
   .inputBox input:valid~span,
   .inputBox input:focus~span {
