@@ -42,7 +42,7 @@ function Profile() {
             </div>
       </header>
       <ul>
-        <li tabIndex="0" className="icon-dashboard"><span>Dashboard</span></li>
+        <li tabIndex="0" className="icon-dashboard"><i class="fa fa-comments-o" aria-hidden="true"></i><span> Dashboard</span></li>
         <li tabIndex="0" className="icon-customers"><span>Customers</span></li>
         <li tabIndex="0" className="icon-users"><span>Users</span></li>
         <li tabIndex="0" className="icon-settings"><span>Settings</span></li>

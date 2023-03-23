@@ -98,3 +98,49 @@
     overflow: hidden;
     outline: none;
 }
+
+
+
+
+
+@media screen and (max-width: 1300px) and (min-width: 400px) {
+  .login-form {
+    margin-top: 6rem;
+    margin-left: -2.5rem;
+  }
+
+  .inputBox {
+    position: relative;
+    width: 260px;
+    margin-bottom: 3em;
+  }
+
+  .inputBox input {
+    width: 100%;
+    height: 30px;
+    padding: 10px;
+    outline: none;
+    border: none;
+    color: #000;
+    font-size: 1em;
+    background: transparent;
+    border-left: 2px solid #000;
+    border-bottom: 2px solid #000;
+    transition: 0.1s;
+    border-bottom-left-radius: 8px;
+  }
+
+  
+  .inputBox input:valid~span,
+  .inputBox input:focus~span {
+    transform: translateX(170px) translateY(-25px);
+    font-size: 0.8em;
+    padding: 5px 10px;
+    background: #000;
+    letter-spacing: 0.2em;
+    color: #fff;
+    border: 2px;
+  }
+  
+
+}

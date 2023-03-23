@@ -59,6 +59,7 @@ main .helper span {
   border-radius: 50%;
   overflow: hidden;
   border: 4px solid #ffea92;
+  background-color: #e4e7f5;
   box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.2);
 }
 .menu .avatar h2 {
@@ -80,7 +81,7 @@ main .helper span {
   transition: all 0.15s linear;
   cursor: pointer;
 }
-.menu ul li.icon-dashboard {
+/* .menu ul li.icon-dashboard {
   background-image: url("http://www.entypo.com/images//gauge.svg");
 }
 .menu ul li.icon-customers {
@@ -91,7 +92,7 @@ main .helper span {
 }
 .menu ul li.icon-settings {
   background-image: url("http://www.entypo.com/images//tools.svg");
-}
+} */
 .menu ul li:hover {
   background-color: rgba(0, 0, 0, 0.1);
 }
@@ -99,9 +100,9 @@ main .helper span {
   outline: none;
 }
 @media screen and (max-width: 900px) and (min-width: 400px) {
-  body {
+  /* body {
     padding-left: 90px;
-  }
+  } */
   .menu {
     width: 90px;
   }
