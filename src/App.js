@@ -1,23 +1,59 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Profile from "./pages/profile";
+import DashBroad from "./pages/dashboard";
+import "./loader.css";
+import React, { useEffect, useState } from "react";
+import Landing from "./auth/landing";
+import { auth } from "./backend/firebase";
+import { onAuthStateChanged } from "firebase/auth";
 
 function App() {
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Check if the user is logged in
+    // setLoading(true);
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setLoggedIn(true);
+      } else {
+        setLoggedIn(false);
+      }
+    });
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  }, []);
+
+
+  // Set loggedIn to true when the user logs in or signs up
+  function handleLogin() {
+    setLoggedIn(true);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {loading ? (
+        <div className="loading-bg">
+          <div className="loader"></div>
+        </div>
+      ) : (
+        <div>
+          {loggedIn ? (
+            <div className="main-bg">
+              <Profile />
+              {/* <DashBroad /> */}
+            </div>
+          ) : (
+            <div className="App">
+              <div className="auth-section">
+                <Landing onLogin={handleLogin} />
+              </div>
+            </div>
+          )}
+        </div>
+      )}
     </div>
   );
 }
