@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import avatar from "./avatar.png";
-// import "./profile.css";
-import "./sidebar.css";
+import "./profile.css";
 import { db } from "../backend/firebase";
 import { collection, getDocs } from "firebase/firestore";
 
