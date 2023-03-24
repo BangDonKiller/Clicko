@@ -37,6 +37,8 @@ function Login({ onSwitchPage, onLogin }) {
           setInvalidPassword(true);
         } else {
           alert("Invalid email or password");
+          setInvalidEmail(true);
+          setInvalidPassword(true);
         }
       });
 
