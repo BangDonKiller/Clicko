@@ -68,7 +68,7 @@ main .helper span {
 }
 .menu ul {
   list-style: none;
-  padding: 0.5em 0;
+  padding: 0em 0;
   margin: 0;
 }
 .menu ul li {
@@ -118,6 +118,7 @@ main .helper span {
     height: 60px;
     background-position: center center;
     background-size: 30px auto;
+    padding: 0.5em 0em 0.1em 1.3em;
     position: relative;
   }
   .menu ul li span {
