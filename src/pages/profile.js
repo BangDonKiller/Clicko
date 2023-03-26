@@ -44,9 +44,9 @@ function Profile() {
       <ul>
         <li tabIndex="0" className="icon-contest"><i class="fa fa-tasks" aria-hidden="true"></i><span> Contest</span></li>
         <li tabIndex="0" className="icon-ranking"><i class="fa fa-bar-chart" aria-hidden="true"></i> <span>Ranking</span></li>
-        <li tabIndex="0" className="icon-forum"><i class="fa fa-comments-o" aria-hidden="true"></i> <span>Forum</span></li>
-        <li tabIndex="0" className="icon-users"><i class="fa fa-user" aria-hidden="true"></i> <span>Profile</span></li>
-        <li tabIndex="0" className="icon-settings"><i class="fa fa-cog" aria-hidden="true"></i> <span>Settings</span></li>
+        <li tabIndex="0" className="icon-forum" style={{color: "#808080", backgroundColor:"	#696969"}}><i class="fa fa-comments-o" aria-hidden="true"></i> <span>Forum</span></li>
+        <li tabIndex="0" className="icon-users" style={{color: "#808080", backgroundColor:"	#696969"}}><i class="fa fa-user" aria-hidden="true"></i> <span>Profile</span></li>
+        <li tabIndex="0" className="icon-settings" style={{color: "#808080", backgroundColor:"	#696969"}}><i class="fa fa-cog" aria-hidden="true"></i> <span>Settings</span></li>
       </ul>
     </nav>
   );

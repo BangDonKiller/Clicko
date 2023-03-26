@@ -88,9 +88,6 @@ main .helper span {
   outline: none;
 }
 @media screen and (max-width: 900px) and (min-width: 400px) {
-  /* body {
-    padding-left: 90px;
-  } */
   .menu {
     width: 90px;
   }
