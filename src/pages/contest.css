@@ -39,14 +39,17 @@
 
   .contest_board{
     /* background-color: rgb(230, 51, 51); */
-    height: calc(100% - 200px);
+    height: calc(100% - 200px - 53px);
+    width: calc(100% - 450px);
     overflow: scroll;
+    overflow-x: hidden;
     scroll-behavior: smooth;
     margin-top: 1.3%;
-    margin-bottom: 1rem;
+    
   }
   .contest_item{
-    color: rgb(200, 200, 200);
+    margin-top: 01rem;
+    color: rgb(234, 234, 234);
     justify-content: space-evenly;
     font-size: 20px;
     display:flex;
@@ -90,3 +93,93 @@
     box-shadow: 13px 13px 100px #969696,
                -13px -13px 100px #ffffff;
   }
+
+  .add_contest{
+    min-height: 450px;
+    margin-top: 20px;
+    max-width: 25%;
+    padding: 1rem;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 20px 20px 30px rgba(0, 0, 0, .05);
+    position: absolute;
+    right: 20px;
+    top: 200px;
+  }
+.create_contest .title{
+    font-size: 30px;
+    font-weight: bold;
+    /* center */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.light-loader {
+  background-color: rgba(236, 0, 0, 0.584);
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  z-index: 1;
+}
+
+.create_description{
+  margin-top: 1.2rem;
+  font-size: 1.4rem;
+  color: rgb(98, 101, 105); 
+}
+
+.create_footer{
+  font-size: 1rem;
+  color: rgb(98, 101, 105); 
+  position: absolute;
+  bottom: 10px;
+  right: 15px;
+}
+
+.create_clicko {
+  display: flex;
+  align-items: center;
+  bottom: 37px;
+  right: 15px;
+  position: absolute;
+}
+
+.clicko_name {
+  min-height: 49px;
+  width: 250px;
+  padding: 0 1rem;
+  color: #000000;
+  font-size: 15px;
+  border: 1px solid #5e4dcd;
+  border-radius: 6px 0 0 6px;
+  background-color: transparent;
+}
+
+.button--submit {
+  min-height: 50px;
+  padding: .5em 1em;
+  border: none;
+  border-radius: 0 6px 6px 0;
+  background-color: #5e4dcd;
+  color: #fff;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color .3s ease-in-out;
+}
+
+.button--submit:hover {
+  background-color: #5e5dcd;
+}
+
+.clicko_name:focus, .clicko_name:focus-visible {
+  border-color: #3898EC;
+  outline: none;
+}
