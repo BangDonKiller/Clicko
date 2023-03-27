@@ -3,7 +3,7 @@ import avatar from "./avatar.png";
 import "./sideBar.css";
 import { db, auth } from "../backend/firebase";
 import { collection, doc, getDoc } from "firebase/firestore";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 function SideBar() {
   const [userData, setUserData] = useState(null);
@@ -32,9 +32,9 @@ function SideBar() {
   if (!userData) {
     return (
       <div className="loading-bg">
-          <div className="loader"></div>
-        </div>
-    )
+        <div className="loader"></div>
+      </div>
+    );
   }
 
   const { name, email, score } = userData;
@@ -56,15 +56,15 @@ function SideBar() {
       </header>
       <ul>
         <li tabIndex="0" className="icon-contest">
-        <Link to="/">
-          <i className="fa fa-tasks" aria-hidden="true"></i>
-          <span> Contest</span>
+          <Link style={{textDecoration: 'none', color: 'white'}} to="/">
+            <i className="fa fa-tasks" aria-hidden="true"></i>
+            <span> Contest</span>
           </Link>
         </li>
         <li tabIndex="0" className="icon-ranking">
-        <Link to="/ranking">
-          <i className="fa fa-bar-chart" aria-hidden="true"></i>{" "}
-          <span>Ranking</span>
+          <Link style={{textDecoration: 'none', color: 'white'}} to="/ranking">
+            <i className="fa fa-bar-chart" aria-hidden="true"></i>{" "}
+            <span>Ranking</span>
           </Link>
         </li>
         <li
