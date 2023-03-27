@@ -1,5 +1,5 @@
 import "./App.css";
-import Contest from "./pages/contest";
+import DashBoard from "./pages/dashboard";
 import SideBar from "./pages/sideBar";
 import "./loader.css";
 import React, { useEffect, useState } from "react";
@@ -45,7 +45,7 @@ function App() {
             <div className="main-bg">
               <SideBar />
               <Routes>
-                <Route path="/" element={<Contest/>} />
+                <Route path="/" element={<DashBoard/>} />
                 <Route path="/ranking" element={<Ranking/>} />
               </Routes>
             </div>

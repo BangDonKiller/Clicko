@@ -56,6 +56,8 @@
 .ranking_board{
     background-color: rgb(60, 59, 59);
     color: white;
+    width: calc(100% - 300px);
+    margin-left: 150px;
     height: calc(100% - 330px);
     margin-top: 2%;
     margin-bottom: 3%;
