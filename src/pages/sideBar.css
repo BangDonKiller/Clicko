@@ -30,6 +30,7 @@
   left: 0;
   z-index: 5;
   outline: none;
+  box-shadow: 0 0 50px #aa9797;
 }
 .menu .avatar {
   background: rgba(0, 0, 0, 0.1);
