@@ -29,7 +29,11 @@ function Profile() {
   }, []);
 
   if (!userData) {
-    return <p>Loading...</p>;
+    return (
+      <div className="loading-bg">
+          <div className="loader"></div>
+        </div>
+    )
   }
 
   const { name, email, score } = userData;
