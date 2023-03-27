@@ -1,10 +1,13 @@
 import "./App.css";
-import Profile from "./pages/profile";
+import Contest from "./pages/contest";
+import SideBar from "./pages/sideBar";
 import "./loader.css";
 import React, { useEffect, useState } from "react";
 import Landing from "./auth/landing";
 import { auth } from "./backend/firebase";
 import { onAuthStateChanged } from "firebase/auth";
+import { Route, Routes } from "react-router-dom";
+import Ranking from "./pages/ranking";
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -25,7 +28,6 @@ function App() {
     }, 2000);
   }, []);
 
-
   // Set loggedIn to true when the user logs in or signs up
   function handleLogin() {
     setLoggedIn(true);
@@ -41,7 +43,12 @@ function App() {
         <div>
           {loggedIn ? (
             <div className="main-bg">
-              <Profile />
+              <SideBar />
+              <Routes>
+                <Route path="/" element={<Contest/>} />
+                <Route path="/ranking" element={<Ranking/>} />
+
+              </Routes>
             </div>
           ) : (
             <div className="App">

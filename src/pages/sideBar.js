@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import avatar from "./avatar.png";
-import "./profile.css";
+import "./sideBar.css";
 import { db, auth } from "../backend/firebase";
 import { collection, doc, getDoc } from "firebase/firestore";
+import { Link } from 'react-router-dom';
 
-function Profile() {
+function SideBar() {
   const [userData, setUserData] = useState(null);
 
   useEffect(() => {
@@ -47,7 +48,7 @@ function Profile() {
           <div className="profile__info__item">
             <h3 className="username">{name}</h3>
             <p className="usermail">
-              <i class="fa fa-envelope" aria-hidden="true"></i> {email}
+              <i className="fa fa-envelope" aria-hidden="true"></i> {email}
             </p>
             <p className="userscore">{score}</p>
           </div>
@@ -55,19 +56,23 @@ function Profile() {
       </header>
       <ul>
         <li tabIndex="0" className="icon-contest">
-          <i class="fa fa-tasks" aria-hidden="true"></i>
+        <Link to="/">
+          <i className="fa fa-tasks" aria-hidden="true"></i>
           <span> Contest</span>
+          </Link>
         </li>
         <li tabIndex="0" className="icon-ranking">
-          <i class="fa fa-bar-chart" aria-hidden="true"></i>{" "}
+        <Link to="/ranking">
+          <i className="fa fa-bar-chart" aria-hidden="true"></i>{" "}
           <span>Ranking</span>
+          </Link>
         </li>
         <li
           tabIndex="0"
           className="icon-forum"
           style={{ color: "#808080", backgroundColor: "#696969" }}
         >
-          <i class="fa fa-comments-o" aria-hidden="true"></i>{" "}
+          <i className="fa fa-comments-o" aria-hidden="true"></i>{" "}
           <span>Forum</span>
         </li>
         <li
@@ -75,18 +80,18 @@ function Profile() {
           className="icon-users"
           style={{ color: "#808080", backgroundColor: "#696969" }}
         >
-          <i class="fa fa-user" aria-hidden="true"></i> <span>Profile</span>
+          <i className="fa fa-user" aria-hidden="true"></i> <span>Profile</span>
         </li>
         <li
           tabIndex="0"
           className="icon-settings"
           style={{ color: "#808080", backgroundColor: "#696969" }}
         >
-          <i class="fa fa-cog" aria-hidden="true"></i> <span>Settings</span>
+          <i className="fa fa-cog" aria-hidden="true"></i> <span>Settings</span>
         </li>
       </ul>
     </nav>
   );
 }
 
-export default Profile;
+export default SideBar;
