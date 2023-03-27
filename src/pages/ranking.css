@@ -19,8 +19,8 @@
 }
 
 .top_three .avatar {
-  width: 150px;
-  height: 150px;
+  width: 130px;
+  height: 130px;
   border-radius: 50%;
   margin-left: 50px;
   margin-top: 30px;
@@ -56,7 +56,7 @@
 .ranking_board{
     background-color: rgb(31, 31, 31);
     color: white;
-    height: calc(100% - 340px);
+    height: calc(100% - 330px);
     margin-top: 2%;
     margin-bottom: 3%;
     overflow-y: scroll;
