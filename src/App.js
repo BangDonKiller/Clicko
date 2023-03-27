@@ -47,7 +47,6 @@ function App() {
               <Routes>
                 <Route path="/" element={<Contest/>} />
                 <Route path="/ranking" element={<Ranking/>} />
-
               </Routes>
             </div>
           ) : (

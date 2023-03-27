@@ -55,18 +55,18 @@ function SideBar() {
         </div>
       </header>
       <ul>
-        <li tabIndex="0" className="icon-contest">
-          <Link style={{textDecoration: 'none', color: 'white'}} to="/">
+        <Link style={{ textDecoration: "none", color: "white" }} to="/">
+          <li tabIndex="0" className="icon-contest">
             <i className="fa fa-tasks" aria-hidden="true"></i>
             <span> Contest</span>
-          </Link>
-        </li>
-        <li tabIndex="0" className="icon-ranking">
-          <Link style={{textDecoration: 'none', color: 'white'}} to="/ranking">
+          </li>
+        </Link>
+        <Link style={{ textDecoration: "none", color: "white" }} to="/ranking">
+          <li tabIndex="0" className="icon-ranking">
             <i className="fa fa-bar-chart" aria-hidden="true"></i>{" "}
             <span>Ranking</span>
-          </Link>
-        </li>
+          </li>
+        </Link>
         <li
           tabIndex="0"
           className="icon-forum"
