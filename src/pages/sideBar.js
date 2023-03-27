@@ -50,7 +50,7 @@ function SideBar() {
             <p className="usermail">
               <i className="fa fa-envelope" aria-hidden="true"></i> {email}
             </p>
-            <p className="userscore">{score}</p>
+            <p className="userscore">{score} <span>pts</span></p>
           </div>
         </div>
       </header>
