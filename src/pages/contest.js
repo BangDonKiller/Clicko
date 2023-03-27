@@ -35,120 +35,121 @@ function Contest() {
       <section className="contest_board">
         <div className="contest_item">
           <div className="contest_title">Contest001</div>
-          <div className="contest_time">Start: 2021-01-01 00:00:00</div>
-          <div className="contest_join_code">Join Code: 123456789</div>
+          <div className="contest_time">Pending...</div>
+          <input type="text" autocomplete="off" name="text" class="input" placeholder="Join Code"></input>
+          {/* <div className="contest_join_code">Join Code: 123456789</div> */}
         </div>
         <div class="h-divider">
           <div class="shadow"></div>
         </div>
         <div className="contest_item">
           <div className="contest_title">Contest001</div>
-          <div className="contest_time">Start: 2021-01-01 00:00:00</div>
-          <div className="contest_join_code">Join Code: 123456789</div>
+          <div className="contest_time">Complete</div>
+          <input type="text" autocomplete="off" name="text" class="input" placeholder="Join Code"></input>
         </div>
         <div class="h-divider">
           <div class="shadow"></div>
         </div>
         <div className="contest_item">
           <div className="contest_title">Contest001</div>
-          <div className="contest_time">Start: 2021-01-01 00:00:00</div>
-          <div className="contest_join_code">Join Code: 123456789</div>
+          <div className="contest_time">In Progress</div>
+          <input type="text" autocomplete="off" name="text" class="input" placeholder="Join Code"></input>
         </div>
         <div class="h-divider">
           <div class="shadow"></div>
         </div>
         <div className="contest_item">
           <div className="contest_title">Contest001</div>
-          <div className="contest_time">Start: 2021-01-01 00:00:00</div>
-          <div className="contest_join_code">Join Code: 123456789</div>
+          <div className="contest_time">Pending...</div>
+          <input type="text" autocomplete="off" name="text" class="input" placeholder="Join Code"></input>
         </div>
         <div class="h-divider">
           <div class="shadow"></div>
         </div>
         <div className="contest_item">
           <div className="contest_title">Contest001</div>
-          <div className="contest_time">Start: 2021-01-01 00:00:00</div>
-          <div className="contest_join_code">Join Code: 123456789</div>
+          <div className="contest_time">Pending...</div>
+          <input type="text" autocomplete="off" name="text" class="input" placeholder="Join Code"></input>
         </div>
         <div class="h-divider">
           <div class="shadow"></div>
         </div>
         <div className="contest_item">
           <div className="contest_title">Contest001</div>
-          <div className="contest_time">Start: 2021-01-01 00:00:00</div>
-          <div className="contest_join_code">Join Code: 123456789</div>
+          <div className="contest_time">Pending...</div>
+          <input type="text" autocomplete="off" name="text" class="input" placeholder="Join Code"></input>
         </div>
         <div class="h-divider">
           <div class="shadow"></div>
         </div>
         <div className="contest_item">
           <div className="contest_title">Contest001</div>
-          <div className="contest_time">Start: 2021-01-01 00:00:00</div>
-          <div className="contest_join_code">Join Code: 123456789</div>
+          <div className="contest_time">Pending...</div>
+          <input type="text" autocomplete="off" name="text" class="input" placeholder="Join Code"></input>
         </div>
         <div class="h-divider">
           <div class="shadow"></div>
         </div>
         <div className="contest_item">
           <div className="contest_title">Contest001</div>
-          <div className="contest_time">Start: 2021-01-01 00:00:00</div>
-          <div className="contest_join_code">Join Code: 123456789</div>
+          <div className="contest_time">Pending...</div>
+          <input type="text" autocomplete="off" name="text" class="input" placeholder="Join Code"></input>
         </div>
         <div class="h-divider">
           <div class="shadow"></div>
         </div>
         <div className="contest_item">
           <div className="contest_title">Contest001</div>
-          <div className="contest_time">Start: 2021-01-01 00:00:00</div>
-          <div className="contest_join_code">Join Code: 123456789</div>
+          <div className="contest_time">Pending...</div>
+          <input type="text" autocomplete="off" name="text" class="input" placeholder="Join Code"></input>
         </div>
         <div class="h-divider">
           <div class="shadow"></div>
         </div>
         <div className="contest_item">
           <div className="contest_title">Contest001</div>
-          <div className="contest_time">Start: 2021-01-01 00:00:00</div>
-          <div className="contest_join_code">Join Code: 123456789</div>
+          <div className="contest_time">Pending...</div>
+          <input type="text" autocomplete="off" name="text" class="input" placeholder="Join Code"></input>
         </div>
         <div class="h-divider">
           <div class="shadow"></div>
         </div>
         <div className="contest_item">
           <div className="contest_title">Contest001</div>
-          <div className="contest_time">Start: 2021-01-01 00:00:00</div>
-          <div className="contest_join_code">Join Code: 123456789</div>
+          <div className="contest_time">Pending...</div>
+          <input type="text" autocomplete="off" name="text" class="input" placeholder="Join Code"></input>
         </div>
         <div class="h-divider">
           <div class="shadow"></div>
         </div>
         <div className="contest_item">
           <div className="contest_title">Contest001</div>
-          <div className="contest_time">Start: 2021-01-01 00:00:00</div>
-          <div className="contest_join_code">Join Code: 123456789</div>
+          <div className="contest_time">Pending...</div>
+          <input type="text" autocomplete="off" name="text" class="input" placeholder="Join Code"></input>
         </div>
         <div class="h-divider">
           <div class="shadow"></div>
         </div>
         <div className="contest_item">
           <div className="contest_title">Contest001</div>
-          <div className="contest_time">Start: 2021-01-01 00:00:00</div>
-          <div className="contest_join_code">Join Code: 123456789</div>
+          <div className="contest_time">Pending...</div>
+          <input type="text" autocomplete="off" name="text" class="input" placeholder="Join Code"></input>
         </div>
         <div class="h-divider">
           <div class="shadow"></div>
         </div>
         <div className="contest_item">
           <div className="contest_title">Contest001</div>
-          <div className="contest_time">Start: 2021-01-01 00:00:00</div>
-          <div className="contest_join_code">Join Code: 123456789</div>
+          <div className="contest_time">Pending...</div>
+          <input type="text" autocomplete="off" name="text" class="input" placeholder="Join Code"></input>
         </div>
         <div class="h-divider">
           <div class="shadow"></div>
         </div>
         <div className="contest_item">
           <div className="contest_title">Contest001</div>
-          <div className="contest_time">Start: 2021-01-01 00:00:00</div>
-          <div className="contest_join_code">Join Code: 123456789</div>
+          <div className="contest_time">Pending...</div>
+          <input type="text" autocomplete="off" name="text" class="input" placeholder="Join Code"></input>
         </div>
       </section>
     </div>
