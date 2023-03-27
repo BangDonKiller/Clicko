@@ -1,7 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Lato:100);
 
 .ranking_bg {
-  background-color: rgb(31, 31, 31);
+  background-color: rgb(60, 59, 59);
   height: 100%;
   width: calc(100% - 300px);
   margin-left: 300px;
@@ -54,7 +54,7 @@
 }
 
 .ranking_board{
-    background-color: rgb(31, 31, 31);
+    background-color: rgb(60, 59, 59);
     color: white;
     height: calc(100% - 330px);
     margin-top: 2%;
@@ -93,7 +93,7 @@
   left: 0;
 }
 .hr:before {
-  background: linear-gradient(90deg, #10111f 0%, #10111f 50%, transparent 50%, transparent 100%);
+  background: linear-gradient(90deg, rgb(60, 59, 59) 0%, rgb(60, 59, 59) 50%, transparent 50%, transparent 100%);
   background-size: 15px;
   background-position: center;
   z-index: 1;
@@ -126,7 +126,7 @@
 }
 
 .hr.anim:before {
-  background: linear-gradient(90deg, #10111f 0%, #10111f 5%, transparent 5%, transparent 10%, #10111f 10%, #10111f 15%, transparent 15%, transparent 20%, #10111f 20%, #10111f 25%, transparent 25%, transparent 30%, #10111f 30%, #10111f 35%, transparent 35%, transparent 40%, #10111f 40%, #10111f 45%, transparent 45%, transparent 50%, #10111f 50%, #10111f 55%, transparent 55%, transparent 60%, #10111f 60%, #10111f 65%, transparent 65%, transparent 70%, #10111f 70%, #10111f 75%, transparent 75%, transparent 80%, #10111f 80%, #10111f 85%, transparent 85%, transparent 90%, #10111f 90%, #10111f 95%, transparent 95%, transparent 100%);
+  background: linear-gradient(90deg, rgb(60, 59, 59) 0%, rgb(60, 59, 59) 5%, transparent 5%, transparent 10%, rgb(60, 59, 59) 10%, rgb(60, 59, 59) 15%, transparent 15%, transparent 20%, rgb(60, 59, 59) 20%, rgb(60, 59, 59) 25%, transparent 25%, transparent 30%, rgb(60, 59, 59) 30%, rgb(60, 59, 59) 35%, transparent 35%, transparent 40%, rgb(60, 59, 59) 40%, rgb(60, 59, 59) 45%, transparent 45%, transparent 50%, rgb(60, 59, 59) 50%, rgb(60, 59, 59) 55%, transparent 55%, transparent 60%, rgb(60, 59, 59) 60%, rgb(60, 59, 59) 65%, transparent 65%, transparent 70%, rgb(60, 59, 59) 70%, rgb(60, 59, 59) 75%, transparent 75%, transparent 80%, rgb(60, 59, 59) 80%, rgb(60, 59, 59) 85%, transparent 85%, transparent 90%, rgb(60, 59, 59) 90%, rgb(60, 59, 59) 95%, transparent 95%, transparent 100%);
   background-size: 150px;
   background-position: center;
   z-index: 1;
