@@ -146,16 +146,38 @@
 }
 
 
+@media screen and (max-width: 1300px){
+  .ranking_board{
+    width: calc(100% - 90px);
+    margin-left: 60px;
+    height: calc(100% - 330px);
+}
+}
+
+
 @media screen and (max-width: 900px){
     .ranking_bg{
+      /* background-color: rgb(216, 42, 42); */
         width: calc(100% - 90px);
         margin-left: 90px;
+        height: 150%;
     }
 
     .ranking_board{
-      width: calc(100% - 90px);
-      margin-left: 60px;
-      height: calc(100% - 330px);
+      width: calc(100% - 20px);
+      margin-left: 10px;
+      height: calc(80% - 330px);
+      font-size: 12px;
+  }
+  .top_three {
+    /* background-color: rgb(72, 72, 72); */
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    color: white;
   }
 }
 
@@ -167,8 +189,8 @@
     }
 
     .ranking_board{
-      width: calc(100% - 60px);
-      margin-left: 60px;
-      height: calc(100% - 330px);
+      width: calc(100% - 20px);
+      margin-left: 1.5px;
+      height: calc(80% - 330px);
   }
 }
