@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 
 function SideBar() {
   const [userData, setUserData] = useState(null);
+  const [score, setScore] = useState(0);
 
   const logoutFunction = () => {
     auth.signOut();
@@ -23,6 +24,7 @@ function SideBar() {
 
         if (userData.exists()) {
           setUserData(userData.data());
+          setScore(userData.data().score.toFixed(2));
         } else {
           console.log("No such user document!");
         }
@@ -41,7 +43,7 @@ function SideBar() {
     );
   }
 
-  const { name, email, score } = userData;
+  const { name, email} = userData;
 
   return (
     <nav className="menu" tabIndex="0">

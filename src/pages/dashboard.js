@@ -55,6 +55,8 @@ function DashBoard() {
     try {
       const docRef = await addDoc(collection(db, "clickos"), {
         player01: name,
+        uid001: auth.currentUser.uid,
+        uid002: "",
         player02: "",
         clickoName: document.getElementById("clicko_name").value,
         status: 0,
@@ -69,6 +71,7 @@ function DashBoard() {
     }
 
     const state = {
+      uid001: auth.currentUser.uid,
       userName: name,
       userScore: score,
       clickoName: document.getElementById("clicko_name").value,
@@ -87,8 +90,10 @@ function DashBoard() {
         status: 1,
         player02: name,
         playerScore2: score,
+        uid002: auth.currentUser.uid,
       });
       const state = {
+        uid002: auth.currentUser.uid,
         userName2: name,
         userScore2: score,
         pending: 1,// in progress

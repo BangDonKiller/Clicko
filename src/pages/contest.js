@@ -7,11 +7,14 @@ var glicko2 = require("glicko2");
 
 function Contest() {
   const location = useLocation();
-  const { userName, userScore, clickoName, joinCode, userName2 } = location.state; //pending, userScore2
+  const { userName, userScore, clickoName, joinCode, userName2 , uid001} = location.state; //pending, userScore2
   const [status, setStatus] = React.useState(0);
   const [playingList, setPlayingList] = React.useState([]);
   const [player, setPlayer] = React.useState(true);
   var user2 = "";
+  const [uid002, setUID002] = React.useState("");
+  console.log("uid2 "+uid002);
+  console.log("uid1 "+uid001);
 
   const clicko_name = clickoName;
   const join_code = joinCode;
@@ -35,6 +38,7 @@ function Contest() {
               const data = docSnapshot.data();
               setPlayingList(data);
               setStatus(data.status);
+              setUID002(data.uid002);
             }
           });
           return unsubscribe;
@@ -78,7 +82,7 @@ function Contest() {
   const player1 = ranking.makePlayer(user1_score, settings.rd);
   const player2 = ranking.makePlayer(user2_score, settings.rd);
   var matches = [];
-  const updateScores = (winner) => {
+  const updateScores = async (winner) => {
     if (winner === "User1") {
       matches.push([player1, player2, 1]); //player1 won over player2
     } else if (winner === "User2") {
@@ -93,9 +97,15 @@ function Contest() {
 
     console.log(`New rating for ${user1}: ${user1_score}`);
     console.log(`New rating for ${user2}: ${user2_score}`);
-    updateDoc(doc(db, "clickos", joinCode), {
+    await updateDoc(doc(db, "clickos", joinCode), {
       playerScore1: user1_score,
       playerScore2: user2_score,
+    });
+    await updateDoc(doc(db, "users", uid001), {
+      score: user1_score,
+    });
+    await updateDoc(doc(db, "users", uid002), {
+      score: user2_score,
     });
   };
 
