@@ -96,6 +96,13 @@ function SideBar() {
         >
           <i className="fa fa-sun-o" aria-hidden="true"></i> <span>Light Mode</span>
         </li>
+        <li
+          tabIndex="0"
+          className="icon-settings"
+          style={{ color: "#808080", backgroundColor: "#696969" }}
+        >
+          <i className="fa fa-sign-out" aria-hidden="true"></i> <span>Log out</span>
+        </li>
       </ul>
     </nav>
   );
