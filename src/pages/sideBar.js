@@ -54,7 +54,9 @@ function SideBar() {
             <p className="usermail">
               <i className="fa fa-envelope" aria-hidden="true"></i> {email}
             </p>
-            <p className="userscore">{score} <span>pts</span></p>
+            <p className="userscore">
+              {score} <span>pts</span>
+            </p>
           </div>
         </div>
       </header>
@@ -98,15 +100,17 @@ function SideBar() {
           className="icon-settings"
           style={{ color: "#808080", backgroundColor: "#696969" }}
         >
-          <i className="fa fa-sun-o" aria-hidden="true"></i> <span>Light Mode</span>
+          <i className="fa fa-sun-o" aria-hidden="true"></i>{" "}
+          <span>Light Mode</span>
         </li>
         <li
           tabIndex="0"
           className="icon-logout"
           onClick={logoutFunction}
-          style={{ color: "#fff"}}
+          style={{ color: "#fff" }}
         >
-          <i className="fa fa-sign-out" aria-hidden="true"></i> <span>Log out</span>
+          <i className="fa fa-sign-out" aria-hidden="true"></i>{" "}
+          <span>Log out</span>
         </li>
       </ul>
     </nav>

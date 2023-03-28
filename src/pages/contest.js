@@ -1,13 +1,16 @@
+import { useLocation } from "react-router-dom";
 import React from "react";
 import "./contest.css";
 var glicko2 = require("glicko2");
 
 function Contest() {
-  const contest_name = "DashBoard001";
+  const location = useLocation();
+  const { userName, userScore, clickoName } = location.state;
+  const clicko_name = clickoName;
   const join_code = "123456";
   const pending = false;
-  const user1 = "User1";
-  let user1_score = 1500;
+  const user1 = userName;
+  let user1_score = userScore;
   const user2 = "User2";
   let user2_score = 1500;
 
@@ -49,10 +52,20 @@ function Contest() {
     <div className="contest_pg">
       {pending ? (
         <div className="contest_pending">
-          <div className="contest_title">- {contest_name} -</div>
+          <div className="contest_title">- {clicko_name} -</div>
           <div className="contest_join_code">Join Code: {join_code}</div>
           <div className="contest-loader">
             <div className="loader"></div>
+          </div>
+          <div className="terminate-container">
+            <button
+              class="end-button"
+              onClick={() => {
+                window.history.back();
+              }}
+            >
+              Terminate
+            </button>
           </div>
         </div>
       ) : (
@@ -60,7 +73,7 @@ function Contest() {
           <div
             className="first_user"
             onClick={() => {
-              updateScores(user1);
+              updateScores("User1");
               window.history.back();
             }}
           >
@@ -73,12 +86,12 @@ function Contest() {
               window.history.back();
             }}
           >
-            {contest_name}
+            {clicko_name}
           </div>
           <div
             className="second_user"
             onClick={() => {
-              updateScores(user2);
+              updateScores("User2");
               window.history.back();
             }}
           >

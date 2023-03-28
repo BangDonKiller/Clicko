@@ -21,6 +21,14 @@ function Ranking() {
     getUsers();
   }, []);
 
+  if (!users) {
+    return (
+      <div className="loading-bg">
+        <div className="loader"></div>
+      </div>
+    );
+  }
+
   return (
     <div className="ranking_bg">
       <section className="top_three">

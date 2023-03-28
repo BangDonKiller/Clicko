@@ -1,13 +1,51 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./dashboard.css";
+import { db, auth } from "../backend/firebase";
+import { collection, doc, getDoc } from "firebase/firestore";
 
 function DashBoard() {
+  const [userData, setUserData] = useState(null);
   const navigate = useNavigate(); // initialize the useNavigate hook
+  useEffect(() => {
+    const userInfoCollection = collection(db, "users");
+    const currentUser = auth.currentUser;
+
+    const getUserInfo = async () => {
+      try {
+        const userDoc = doc(userInfoCollection, currentUser.uid);
+        const userData = await getDoc(userDoc);
+
+        if (userData.exists()) {
+          setUserData(userData.data());
+        } else {
+          console.log("No such user document!");
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getUserInfo();
+  }, []);
+
+  if (!userData) {
+    return (
+      <div className="loading-bg">
+        <div className="loader"></div>
+      </div>
+    );
+  }
+
+  const { name, score } = userData;
 
   // define the handleClick function that navigates to the contest page
   const handleClick = () => {
-    navigate("/contest");
+    const state = {
+      userName: name,
+      userScore: score, // replace with the current user's score
+      clickoName: document.getElementById("clicko_name").value, // replace with the Clicko name entered in the input bar
+    };
+    navigate("/contest", { state: state });
   };
 
   return (
@@ -145,7 +183,12 @@ function DashBoard() {
             placeholder="Clicko Name"
             autoComplete="off"
           />
-          <input className="button--submit" value="Create" type="submit" onClick={handleClick}/>
+          <input
+            className="button--submit"
+            value="Create"
+            type="submit"
+            onClick={handleClick}
+          />
         </div>
         <div className="create_footer">Time left: 5/5</div>
       </section>
