@@ -26,7 +26,7 @@ function Login({ onSwitchPage, onLogin }) {
       .then((userCredential) => {
         const user = userCredential.user;
         console.log("user: ", user);
-        alert("Login successful");
+        // alert("Login successful");
         onLogin();
       })
       .catch((error) => {
@@ -36,7 +36,7 @@ function Login({ onSwitchPage, onLogin }) {
         } else if (error.code === "auth/wrong-password") {
           setInvalidPassword(true);
         } else {
-          alert("Invalid email or password");
+          // alert("Invalid email or password");
           setInvalidEmail(true);
           setInvalidPassword(true);
         }
