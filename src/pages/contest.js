@@ -5,10 +5,10 @@ var glicko2 = require("glicko2");
 
 function Contest() {
   const location = useLocation();
-  const { userName, userScore, clickoName } = location.state;
+  const { userName, userScore, clickoName, joinCode } = location.state;
   const clicko_name = clickoName;
-  const join_code = "123456";
-  const pending = false;
+  const join_code = joinCode;
+  const pending = true;
   const user1 = userName;
   let user1_score = userScore;
   const user2 = "User2";

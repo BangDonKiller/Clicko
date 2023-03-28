@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./dashboard.css";
 import { db, auth } from "../backend/firebase";
-import { collection, doc, getDoc } from "firebase/firestore";
+import { collection, doc, getDoc, addDoc } from "firebase/firestore"; //updateDoc
 
 function DashBoard() {
   const [userData, setUserData] = useState(null);
@@ -36,27 +36,44 @@ function DashBoard() {
     );
   }
 
-  const { name, score, ClickoTime, identity } = userData;
+  const { name, score, } = userData; // ClickoTime, identity 
+  var joinCode;
 
-  const handleClick = () => {
+  const handleCreateClicko = async () => {
+    // await updateDoc(washingtonRef, {
+    //   capital: true
+    // });
+    try {
+    const docRef = await addDoc(collection(db, "clickos", ), {
+      player1: name,
+      player2: "",
+      clickoName: document.getElementById("clicko_name").value,
+      status: "pending...",
+      result: "",
+    });
+    joinCode = docRef.id;
+  } catch (e) {
+    console.error("Error adding document: ", e);
+  }
+   
     const state = {
       userName: name,
       userScore: score,
       clickoName: document.getElementById("clicko_name").value,
-      clickoTime: ClickoTime,
+      joinCode: joinCode,
     };
     navigate("/contest", { state: state });
   };
 
-  var totalCreateTime = 5;
+  // var totalCreateTime = 5;
 
-  if (identity === "normal") {
-    totalCreateTime = 5;
-  } else if (identity === "premium") {
-    totalCreateTime = 10;
-  } else if (identity === "admin") {
-    totalCreateTime = 15;
-  }
+  // if (identity === "normal") {
+  //   totalCreateTime = 5;
+  // } else if (identity === "premium") {
+  //   totalCreateTime = 10;
+  // } else if (identity === "admin") {
+  //   totalCreateTime = 15;
+  // }
 
   return (
     <div className="dashboard_bg">
@@ -197,10 +214,10 @@ function DashBoard() {
             className="button--submit"
             value="Create"
             type="submit"
-            onClick={handleClick}
+            onClick={handleCreateClicko}
           />
         </div>
-        <div className="create_footer">Time left: {ClickoTime}/{totalCreateTime}</div>
+        {/* <div className="create_footer">Time left: {ClickoTime}/{totalCreateTime}</div> */}
       </section>
     </div>
   );
