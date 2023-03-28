@@ -1,5 +1,7 @@
 import { useLocation } from "react-router-dom";
-import React from "react";
+import React, { useEffect } from "react";
+import { db, auth } from "../backend/firebase";
+import { collection, doc, getDoc, updateDoc } from "firebase/firestore";
 import "./contest.css";
 var glicko2 = require("glicko2");
 
@@ -13,17 +15,21 @@ function Contest() {
   let user1_score = userScore;
   const user2 = "User2";
   let user2_score = 1500;
+  useEffect(() => {
+    try {
+      updateDoc(doc(db, "clickos", joinCode), {
+        code: joinCode,
+      });
+    } catch (e) {
+      console.error("Error adding document: ", e);
+    }
+    console.log("Contest Page");
+  }, []);
 
   var settings = {
-    // tau : "Reasonable choices are between 0.3 and 1.2, though the system should
-    //      be tested to decide which value results in greatest predictive accuracy."
     tau: 0.5,
-    // rating : default rating
     rating: 1500,
-    //rd : Default rating deviation
-    //     small number = good confidence on the rating accuracy
     rd: 200,
-    //vol : Default volatility (expected fluctation on the player rating)
     vol: 0.06,
   };
   var ranking = new glicko2.Glicko2(settings);
@@ -59,7 +65,7 @@ function Contest() {
           </div>
           <div className="terminate-container">
             <button
-              class="end-button"
+              className="end-button"
               onClick={() => {
                 window.history.back();
               }}

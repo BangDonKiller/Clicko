@@ -40,16 +40,14 @@ function DashBoard() {
   var joinCode;
 
   const handleCreateClicko = async () => {
-    // await updateDoc(washingtonRef, {
-    //   capital: true
-    // });
     try {
-    const docRef = await addDoc(collection(db, "clickos", ), {
+    const docRef = await addDoc(collection(db, "clickos"), {
       player1: name,
       player2: "",
       clickoName: document.getElementById("clicko_name").value,
       status: "pending...",
       result: "",
+      code: "",
     });
     joinCode = docRef.id;
   } catch (e) {
