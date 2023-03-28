@@ -30,7 +30,7 @@
   margin-right: auto;
 }
 
-.first_place .avatar {
+/* .first_place .avatar {
     background-color: rgb(255, 228, 75);
 }
 
@@ -40,7 +40,7 @@
 
 .third_place .avatar {
     background-color: rgb(191, 95, 95);
-}
+} */
 
 .player_name {
     font-size: 30px;
@@ -143,4 +143,32 @@
 .hr.anim:hover:after {
   -webkit-animation-duration: 2s;
           animation-duration: 2s;
+}
+
+
+@media screen and (max-width: 900px){
+    .ranking_bg{
+        width: calc(100% - 90px);
+        margin-left: 90px;
+    }
+
+    .ranking_board{
+      width: calc(100% - 90px);
+      margin-left: 60px;
+      height: calc(100% - 330px);
+  }
+}
+
+
+@media screen and (max-width: 400px){
+    .ranking_bg{
+        width: 100%;
+        margin-left: 0px;
+    }
+
+    .ranking_board{
+      width: calc(100% - 60px);
+      margin-left: 60px;
+      height: calc(100% - 330px);
+  }
 }
