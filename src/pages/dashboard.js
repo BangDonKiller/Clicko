@@ -142,7 +142,7 @@ function DashBoard() {
             <div className="contest_item">
               <div className="contest_title">{clicko.clickoName}</div>
               <div className="contest_time">{clicko.status}</div>
-              {clicko.status === "pending..." ? (
+              {clicko.status === 0 ? (
                 <div className="input-container">
                   <input
                     required=""

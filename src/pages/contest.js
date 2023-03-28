@@ -1,13 +1,14 @@
 import { useLocation } from "react-router-dom";
 import React, { useEffect } from "react";
 import { db } from "../backend/firebase";
-import { doc, updateDoc, getDoc, collection } from "firebase/firestore";
+import { doc, updateDoc, onSnapshot, collection } from "firebase/firestore"; // getDoc
 import "./contest.css";
 var glicko2 = require("glicko2");
 
 function Contest() {
   const location = useLocation();
   const { userName, userScore, clickoName, joinCode, userName2 } = location.state; //pending, userScore2
+  const [status, setStatus] = React.useState(0);
   const [playingList, setPlayingList] = React.useState([]);
   const [player, setPlayer] = React.useState(true);
   var user2 = "";
@@ -18,6 +19,9 @@ function Contest() {
   let user1_score = userScore;
   let user2_score;
 
+
+  
+
   useEffect(() => {
     if (userName2 === undefined) {
       setPlayer(false);
@@ -26,9 +30,17 @@ function Contest() {
       try {
         if (joinCode) {
           const clickoDoc = doc(collection(db, "clickos"), joinCode);
-          const pendingRef = await getDoc(clickoDoc);
-          setPlayingList(pendingRef.data());
-          console.log(pendingRef);
+          const unsubscribe = onSnapshot(clickoDoc, (docSnapshot) => {
+            if (docSnapshot.exists()) {
+              const data = docSnapshot.data();
+              setPlayingList(data);
+              setStatus(data.status);
+            }
+          });
+          return unsubscribe;
+          // const pendingRef = await getDoc(clickoDoc);
+          // setPlayingList(pendingRef.data());
+          // console.log(pendingRef);
         }
       } catch (e) {
         console.error("Error adding document: ", e);
@@ -37,7 +49,7 @@ function Contest() {
     setOpponent();
   }, [joinCode, userName2]);
 
-  const { status, player02, playerScore2 } = playingList;
+  const { player02, playerScore2 } = playingList;
   user2 = player02;
   user2_score = playerScore2;
 
@@ -88,6 +100,7 @@ function Contest() {
   };
 
   return (
+    console.log(status),
     <div className="contest_pg">
       {status === 0 ? (
         <div className="contest_pending">
@@ -108,7 +121,7 @@ function Contest() {
           </div>
         </div>
       ) : player ? (
-        matches[0] ? (
+        status === 2 ? (
           (console.log(matches),
           (
             <button
@@ -129,9 +142,9 @@ function Contest() {
         <div className="contest_complete">
           <div
             className="first_user"
-            onClick={() => {
+            onClick={async () => {
               updateScores("User1");
-              updateDoc(doc(db, "clickos", joinCode), {
+              await updateDoc(doc(db, "clickos", joinCode), {
                 status: 2,
                 result: 1,
               });
@@ -142,9 +155,9 @@ function Contest() {
           </div>
           <div
             className="contest_title"
-            onClick={() => {
+            onClick={async () => {
               updateScores("draw");
-              updateDoc(doc(db, "clickos", joinCode), {
+              await updateDoc(doc(db, "clickos", joinCode), {
                 status: 2,
                 result: 0.5,
               });
@@ -155,9 +168,9 @@ function Contest() {
           </div>
           <div
             className="second_user"
-            onClick={() => {
+            onClick={async () => {
               updateScores("User2");
-              updateDoc(doc(db, "clickos", joinCode), {
+              await updateDoc(doc(db, "clickos", joinCode), {
                 status: 2,
                 result: 0,
               });
