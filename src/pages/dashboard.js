@@ -36,16 +36,27 @@ function DashBoard() {
     );
   }
 
-  const { name, score } = userData;
+  const { name, score, ClickoTime, identity } = userData;
 
   const handleClick = () => {
     const state = {
       userName: name,
       userScore: score,
       clickoName: document.getElementById("clicko_name").value,
+      clickoTime: ClickoTime,
     };
     navigate("/contest", { state: state });
   };
+
+  var totalCreateTime = 5;
+
+  if (identity === "normal") {
+    totalCreateTime = 5;
+  } else if (identity === "premium") {
+    totalCreateTime = 10;
+  } else if (identity === "admin") {
+    totalCreateTime = 15;
+  }
 
   return (
     <div className="dashboard_bg">
@@ -189,7 +200,7 @@ function DashBoard() {
             onClick={handleClick}
           />
         </div>
-        <div className="create_footer">Time left: 5/5</div>
+        <div className="create_footer">Time left: {ClickoTime}/{totalCreateTime}</div>
       </section>
     </div>
   );
