@@ -2,12 +2,28 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./dashboard.css";
 import { db, auth } from "../backend/firebase";
-import { collection, doc, getDoc, addDoc } from "firebase/firestore"; //updateDoc
+import {
+  collection,
+  doc,
+  getDoc,
+  addDoc,
+  onSnapshot,
+} from "firebase/firestore"; //updateDoc
 
 function DashBoard() {
   const [userData, setUserData] = useState(null);
+  const [clickos, setClickos] = useState([]);
   const navigate = useNavigate();
   useEffect(() => {
+    const clickosCollection = collection(db, "clickos");
+    const unsubscribe = onSnapshot(clickosCollection, (snapshot) => {
+      const clickosList = [];
+      snapshot.forEach((doc) => {
+        clickosList.push({ id: doc.id, ...doc.data() });
+      });
+      setClickos(clickosList);
+    });
+
     const userInfoCollection = collection(db, "users");
     const currentUser = auth.currentUser;
 
@@ -26,6 +42,7 @@ function DashBoard() {
       }
     };
     getUserInfo();
+    return unsubscribe;
   }, []);
 
   if (!userData) {
@@ -36,24 +53,24 @@ function DashBoard() {
     );
   }
 
-  const { name, score, } = userData; // ClickoTime, identity 
+  const { name, score } = userData; // ClickoTime, identity
   var joinCode;
 
   const handleCreateClicko = async () => {
     try {
-    const docRef = await addDoc(collection(db, "clickos"), {
-      player1: name,
-      player2: "",
-      clickoName: document.getElementById("clicko_name").value,
-      status: "pending...",
-      result: "",
-      code: "",
-    });
-    joinCode = docRef.id;
-  } catch (e) {
-    console.error("Error adding document: ", e);
-  }
-   
+      const docRef = await addDoc(collection(db, "clickos"), {
+        player1: name,
+        player2: "",
+        clickoName: document.getElementById("clicko_name").value,
+        status: "pending...",
+        result: "",
+        code: "",
+      });
+      joinCode = docRef.id;
+    } catch (e) {
+      console.error("Error adding document: ", e);
+    }
+
     const state = {
       userName: name,
       userScore: score,
@@ -102,87 +119,24 @@ function DashBoard() {
         </div>
       </section>
       <section className="contest_board">
-        <div className="contest_item">
-          <div className="contest_title">DashBoard001</div>
-          <div className="contest_time">Pending...</div>
-          <input
-            type="text"
-            autoComplete="off"
-            name="text"
-            className="input"
-            placeholder="Join Code"
-          ></input>
-        </div>
-        <div className="h-divider">
-          <div className="shadow"></div>
-        </div>
-        <div className="contest_item">
-          <div className="contest_title">DashBoard001</div>
-          <div className="contest_time">Complete</div>
-          <input
-            type="text"
-            autoComplete="off"
-            name="text"
-            className="input"
-            placeholder="Join Code"
-          ></input>
-        </div>
-        <div className="h-divider">
-          <div className="shadow"></div>
-        </div>
-        <div className="contest_item">
-          <div className="contest_title">DashBoard001</div>
-          <div className="contest_time">In Progress</div>
-          <input
-            type="text"
-            autoComplete="off"
-            name="text"
-            className="input"
-            placeholder="Join Code"
-          ></input>
-        </div>
-        <div className="h-divider">
-          <div className="shadow"></div>
-        </div>
-        <div className="contest_item">
-          <div className="contest_title">DashBoard001</div>
-          <div className="contest_time">Pending...</div>
-          <input
-            type="text"
-            autoComplete="off"
-            name="text"
-            className="input"
-            placeholder="Join Code"
-          ></input>
-        </div>
-        <div className="h-divider">
-          <div className="shadow"></div>
-        </div>
-        <div className="contest_item">
-          <div className="contest_title">DashBoard001</div>
-          <div className="contest_time">Pending...</div>
-          <input
-            type="text"
-            autoComplete="off"
-            name="text"
-            className="input"
-            placeholder="Join Code"
-          ></input>
-        </div>
-        <div className="h-divider">
-          <div className="shadow"></div>
-        </div>
-        <div className="contest_item">
-          <div className="contest_title">DashBoard001</div>
-          <div className="contest_time">Pending...</div>
-          <input
-            type="text"
-            autoComplete="off"
-            name="text"
-            className="input"
-            placeholder="Join Code"
-          ></input>
-        </div>
+        {clickos.map((clicko) => (
+          <div className="contest_list" key={clicko.id}>
+            <div className="contest_item">
+              <div className="contest_title">{clicko.clickoName}</div>
+              <div className="contest_time">{clicko.status}</div>
+              <input
+                type="text"
+                autoComplete="off"
+                name="text"
+                className="input"
+                placeholder="Join Code"
+              ></input>
+            </div>
+            <div className="h-divider">
+              <div className="shadow"></div>
+            </div>
+          </div>
+        ))}
         <div
           style={{
             height: "20px",

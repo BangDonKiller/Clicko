@@ -1,7 +1,7 @@
 import { useLocation } from "react-router-dom";
 import React, { useEffect } from "react";
-import { db, auth } from "../backend/firebase";
-import { collection, doc, getDoc, updateDoc } from "firebase/firestore";
+import { db } from "../backend/firebase";
+import { doc, updateDoc } from "firebase/firestore";
 import "./contest.css";
 var glicko2 = require("glicko2");
 
@@ -24,7 +24,7 @@ function Contest() {
       console.error("Error adding document: ", e);
     }
     console.log("Contest Page");
-  }, []);
+  }, [joinCode]);
 
   var settings = {
     tau: 0.5,
