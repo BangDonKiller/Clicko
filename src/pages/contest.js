@@ -28,6 +28,7 @@ function Contest() {
             className="first_user"
             onClick={() => {
               console.log("User1 clicked");
+              window.history.back();
             }}
           >
             {user1}
@@ -37,6 +38,7 @@ function Contest() {
             className="second_user"
             onClick={() => {
               console.log("User2 clicked");
+              window.history.back();
             }}
           >
             {user2}
