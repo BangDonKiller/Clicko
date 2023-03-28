@@ -8,6 +8,7 @@ import { auth } from "./backend/firebase";
 import { onAuthStateChanged } from "firebase/auth";
 import { Route, Routes } from "react-router-dom";
 import Ranking from "./pages/ranking";
+import Contest from "./pages/contest";
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -47,6 +48,8 @@ function App() {
               <Routes>
                 <Route path="/" element={<DashBoard/>} />
                 <Route path="/ranking" element={<Ranking/>} />
+                <Route path="/contest" element={<Contest/>} />
+
               </Routes>
             </div>
           ) : (

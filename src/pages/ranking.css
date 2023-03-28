@@ -19,6 +19,7 @@
 }
 
 .top_three .avatar {
+  background-color: azure;
   width: 130px;
   height: 130px;
   border-radius: 50%;

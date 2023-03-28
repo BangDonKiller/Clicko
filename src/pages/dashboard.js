@@ -1,7 +1,15 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "./dashboard.css";
 
 function DashBoard() {
+  const navigate = useNavigate(); // initialize the useNavigate hook
+
+  // define the handleClick function that navigates to the contest page
+  const handleClick = () => {
+    navigate("/contest");
+  };
+
   return (
     <div className="dashboard_bg">
       <section className="notifications">
@@ -16,7 +24,7 @@ function DashBoard() {
           <span className="title">&#x1F4B5; Donation Notice</span>
           <p className="description">
             This is a work in progress, you can donate to keep it going. If you
-            donate more than 100$, you'll get a free premium membership.
+            donate more than 50 NT$, you'll get a free premium membership.
           </p>
         </div>
         <div className="coffee-card">
@@ -101,132 +109,6 @@ function DashBoard() {
         <div className="h-divider">
           <div className="shadow"></div>
         </div>
-        {/* <div className="contest_item">
-          <div className="contest_title">DashBoard001</div>
-          <div className="contest_time">Pending...</div>
-          <input
-            type="text"
-            autoComplete="off"
-            name="text"
-            className="input"
-            placeholder="Join Code"
-          ></input>
-        </div>
-        <div className="h-divider">
-          <div className="shadow"></div>
-        </div>
-        <div className="contest_item">
-          <div className="contest_title">DashBoard001</div>
-          <div className="contest_time">Pending...</div>
-          <input
-            type="text"
-            autoComplete="off"
-            name="text"
-            className="input"
-            placeholder="Join Code"
-          ></input>
-        </div>
-        <div className="h-divider">
-          <div className="shadow"></div>
-        </div>
-        <div className="contest_item">
-          <div className="contest_title">DashBoard001</div>
-          <div className="contest_time">Pending...</div>
-          <input
-            type="text"
-            autoComplete="off"
-            name="text"
-            className="input"
-            placeholder="Join Code"
-          ></input>
-        </div>
-        <div className="h-divider">
-          <div className="shadow"></div>
-        </div>
-        <div className="contest_item">
-          <div className="contest_title">DashBoard001</div>
-          <div className="contest_time">Pending...</div>
-          <input
-            type="text"
-            autoComplete="off"
-            name="text"
-            className="input"
-            placeholder="Join Code"
-          ></input>
-        </div>
-        <div className="h-divider">
-          <div className="shadow"></div>
-        </div>
-        <div className="contest_item">
-          <div className="contest_title">DashBoard001</div>
-          <div className="contest_time">Pending...</div>
-          <input
-            type="text"
-            autoComplete="off"
-            name="text"
-            className="input"
-            placeholder="Join Code"
-          ></input>
-        </div>
-        <div className="h-divider">
-          <div className="shadow"></div>
-        </div>
-        <div className="contest_item">
-          <div className="contest_title">DashBoard001</div>
-          <div className="contest_time">Pending...</div>
-          <input
-            type="text"
-            autoComplete="off"
-            name="text"
-            className="input"
-            placeholder="Join Code"
-          ></input>
-        </div>
-        <div className="h-divider">
-          <div className="shadow"></div>
-        </div>
-        <div className="contest_item">
-          <div className="contest_title">DashBoard001</div>
-          <div className="contest_time">Pending...</div>
-          <input
-            type="text"
-            autoComplete="off"
-            name="text"
-            className="input"
-            placeholder="Join Code"
-          ></input>
-        </div>
-        <div className="h-divider">
-          <div className="shadow"></div>
-        </div>
-        <div className="contest_item">
-          <div className="contest_title">DashBoard001</div>
-          <div className="contest_time">Pending...</div>
-          <input
-            type="text"
-            autoComplete="off"
-            name="text"
-            className="input"
-            placeholder="Join Code"
-          ></input>
-        </div>
-        <div className="h-divider">
-          <div className="shadow"></div>
-        </div> */}
-        {/* <div className="contest_item">
-          <div className="contest_title">DashBoard001</div>
-          <div className="contest_time">Pending...</div>
-          <input
-            type="text"
-            autoComplete="off"
-            name="text"
-            className="input"
-            placeholder="Join Code"
-          ></input>
-        </div>
-        <div className="h-divider">
-          <div className="shadow"></div>
-        </div> */}
         <div className="contest_item">
           <div className="contest_title">DashBoard001</div>
           <div className="contest_time">Pending...</div>
@@ -263,7 +145,7 @@ function DashBoard() {
             placeholder="Clicko Name"
             autoComplete="off"
           />
-          <input className="button--submit" value="Create" type="submit" />
+          <input className="button--submit" value="Create" type="submit" onClick={handleClick}/>
         </div>
         <div className="create_footer">Time left: 5/5</div>
       </section>

@@ -58,7 +58,7 @@ function SideBar() {
         <Link style={{ textDecoration: "none", color: "white" }} to="/">
           <li tabIndex="0" className="icon-contest">
             <i className="fa fa-tasks" aria-hidden="true"></i>
-            <span> Contest</span>
+            <span> DashBoard</span>
           </li>
         </Link>
         <Link style={{ textDecoration: "none", color: "white" }} to="/ranking">

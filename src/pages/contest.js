@@ -1,24 +1,46 @@
 import React from "react";
+import "./contest.css";
 
-function Contest({ pending, complete, contest_name, join_code, user1, user2}) {
-  const [pending, setPending] = React.useState("True");
-  const [complete, setComplete] = React.useState("False");
+function Contest() {
+  const contest_name = "DashBoard001";
+  const join_code = "123456";
+  const pending = false;
+  // const winner = "None";
+  const user1 = "User1";
+  const user2 = "User2";
+
+  // const [pending, setPending] = React.useState("True");
+  // const [complete, setComplete] = React.useState("False");
 
   return (
-    <div>
+    <div className="contest_pg">
       {pending ? (
         <div className="contest_pending">
-          <div className="contest_title">{contest_name}</div>
-          <div className="light-loader">
-              <div className="loader"></div>
-            </div>
+          <div className="contest_title">- {contest_name} -</div>
           <div className="contest_join_code">Join Code: {join_code}</div>
+          <div className="contest-loader">
+            <div className="loader"></div>
+          </div>
         </div>
       ) : (
-        <div className="contest_item">
-          <div className="first_user">{user1}</div>
-            <div className="contest_title">{contest_name}</div>
-          <div className="second_user">{user2}</div>
+        <div className="contest_complete">
+          <div
+            className="first_user"
+            onClick={() => {
+              console.log("User1 clicked");
+            }}
+          >
+            {user1}
+          </div>
+          <div className="contest_title">{contest_name}</div>
+          <div
+            className="second_user"
+            onClick={() => {
+              console.log("User2 clicked");
+            }}
+          >
+            {user2}
+          </div>
         </div>
       )}
     </div>
