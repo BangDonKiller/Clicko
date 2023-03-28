@@ -27,17 +27,20 @@ function Contest() {
           <div
             className="first_user"
             onClick={() => {
-              console.log("User1 clicked");
+              console.log("User1 won");
               window.history.back();
             }}
           >
             {user1}
           </div>
-          <div className="contest_title">{contest_name}</div>
+          <div className="contest_title" onClick={() => {
+              console.log("Drew");
+              window.history.back();
+            }}>{contest_name}</div>
           <div
             className="second_user"
             onClick={() => {
-              console.log("User2 clicked");
+              console.log("User2 won");
               window.history.back();
             }}
           >
