@@ -11,6 +11,7 @@ import {
 } from "firebase/firestore"; //updateDoc
 
 function DashBoard() {
+  const [inputValues, setInputValues] = useState([]);
   const [userData, setUserData] = useState(null);
   const [clickos, setClickos] = useState([]);
   const navigate = useNavigate();
@@ -80,6 +81,17 @@ function DashBoard() {
     navigate("/contest", { state: state });
   };
 
+  const handleInvite = (clickoId, inputValue) => {
+    if (inputValue !== clickoId) {
+      alert("Wrong Code !!!");
+      return;
+    } else {
+      alert("Correct Code !!!");
+    }
+  };
+
+
+
   // var totalCreateTime = 5;
 
   // if (identity === "normal") {
@@ -119,18 +131,24 @@ function DashBoard() {
         </div>
       </section>
       <section className="contest_board">
-        {clickos.map((clicko) => (
+        {clickos.map((clicko, index) => (
+          console.log(clicko.id),
           <div className="contest_list" key={clicko.id}>
             <div className="contest_item">
               <div className="contest_title">{clicko.clickoName}</div>
               <div className="contest_time">{clicko.status}</div>
-              <input
-                type="text"
-                autoComplete="off"
-                name="text"
-                className="input"
-                placeholder="Join Code"
-              ></input>
+              <div className="input-container">
+                <input required="" value={inputValues[index]} onChange={(e) => {
+          const newValues = [...inputValues];
+          newValues[index] = e.target.value;
+          setInputValues(newValues);
+        }}/>
+                <button className="invite-btn" type="button" 
+                  onClick={() => handleInvite(clicko.id, inputValues[index])}
+                >
+                  Join
+                </button>
+              </div>
             </div>
             <div className="h-divider">
               <div className="shadow"></div>
