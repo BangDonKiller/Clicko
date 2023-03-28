@@ -82,7 +82,12 @@ function Signup({ onSwitchPage, onLogin }) {
           email: email,
           name: username,
           password: password,
-          score: 1500
+          score: 1500,
+          win: 0,
+          lose: 0,
+          avatar: "",
+          identity: "normal",
+          ClickoTime: 5,
         });
 
         // const userRef = db.collection("users").doc(user.uid);
