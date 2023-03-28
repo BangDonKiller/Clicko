@@ -8,6 +8,10 @@ import { Link } from "react-router-dom";
 function SideBar() {
   const [userData, setUserData] = useState(null);
 
+  const logoutFunction = () => {
+    auth.signOut();
+  };
+
   useEffect(() => {
     const userInfoCollection = collection(db, "users");
     const currentUser = auth.currentUser;
@@ -98,8 +102,9 @@ function SideBar() {
         </li>
         <li
           tabIndex="0"
-          className="icon-settings"
-          style={{ color: "#808080", backgroundColor: "#696969" }}
+          className="icon-logout"
+          onClick={logoutFunction}
+          style={{ color: "#fff"}}
         >
           <i className="fa fa-sign-out" aria-hidden="true"></i> <span>Log out</span>
         </li>

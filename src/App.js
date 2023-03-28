@@ -26,10 +26,8 @@ function App() {
     });
     setTimeout(() => {
       setLoading(false);
-    }, 2000);
+    }, 5000);
   }, []);
-
-  // Set loggedIn to true when the user logs in or signs up
   function handleLogin() {
     setLoggedIn(true);
   }
@@ -49,7 +47,6 @@ function App() {
                 <Route path="/" element={<DashBoard/>} />
                 <Route path="/ranking" element={<Ranking/>} />
                 <Route path="/contest" element={<Contest/>} />
-
               </Routes>
             </div>
           ) : (
