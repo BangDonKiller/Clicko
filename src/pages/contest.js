@@ -7,14 +7,13 @@ var glicko2 = require("glicko2");
 
 function Contest() {
   const location = useLocation();
-  const { userName, userScore, clickoName, joinCode } = location.state;
+  const { userName, userScore, clickoName, joinCode, pending, userName2, userScore2 } = location.state;
   const clicko_name = clickoName;
   const join_code = joinCode;
-  const pending = true;
   const user1 = userName;
   let user1_score = userScore;
-  const user2 = "User2";
-  let user2_score = 1500;
+  const user2 = userName2;
+  let user2_score = userScore2;
   useEffect(() => {
     try {
       updateDoc(doc(db, "clickos", joinCode), {
@@ -75,7 +74,12 @@ function Contest() {
           </div>
         </div>
       ) : (
-        <div className="contest_complete">
+        user2 ? (
+          <div className="contest-loader">
+            <div className="loader"></div>
+          </div>
+        ):(
+          <div className="contest_complete">
           <div
             className="first_user"
             onClick={() => {
@@ -104,6 +108,7 @@ function Contest() {
             {user2}
           </div>
         </div>
+        )
       )}
     </div>
   );

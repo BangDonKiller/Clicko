@@ -77,6 +77,7 @@ function DashBoard() {
       userScore: score,
       clickoName: document.getElementById("clicko_name").value,
       joinCode: joinCode,
+      pending: true,
     };
     navigate("/contest", { state: state });
   };
@@ -86,11 +87,15 @@ function DashBoard() {
       alert("Wrong Code !!!");
       return;
     } else {
-      alert("Correct Code !!!");
+      const state = {
+        userName2: name,
+        userScore2: score,
+        pending: false,
+      };
+      navigate("/contest", { state: state });
+      // alert("Correct Code !!!");
     }
   };
-
-
 
   // var totalCreateTime = 5;
 
@@ -131,30 +136,41 @@ function DashBoard() {
         </div>
       </section>
       <section className="contest_board">
-        {clickos.map((clicko, index) => (
-          console.log(clicko.id),
-          <div className="contest_list" key={clicko.id}>
-            <div className="contest_item">
-              <div className="contest_title">{clicko.clickoName}</div>
-              <div className="contest_time">{clicko.status}</div>
-              <div className="input-container">
-                <input required="" value={inputValues[index]} onChange={(e) => {
-          const newValues = [...inputValues];
-          newValues[index] = e.target.value;
-          setInputValues(newValues);
-        }}/>
-                <button className="invite-btn" type="button" 
-                  onClick={() => handleInvite(clicko.id, inputValues[index])}
-                >
-                  Join
-                </button>
+        {clickos.map(
+          (clicko, index) => (
+            (
+              <div className="contest_list" key={clicko.id}>
+                <div className="contest_item">
+                  <div className="contest_title">{clicko.clickoName}</div>
+                  <div className="contest_time">{clicko.status}</div>
+                  <div className="input-container">
+                    <input
+                      required=""
+                      value={inputValues[index]}
+                      onChange={(e) => {
+                        const newValues = [...inputValues];
+                        newValues[index] = e.target.value;
+                        setInputValues(newValues);
+                      }}
+                    />
+                    <button
+                      className="invite-btn"
+                      type="button"
+                      onClick={() =>
+                        handleInvite(clicko.id, inputValues[index])
+                      }
+                    >
+                      Join
+                    </button>
+                  </div>
+                </div>
+                <div className="h-divider">
+                  <div className="shadow"></div>
+                </div>
               </div>
-            </div>
-            <div className="h-divider">
-              <div className="shadow"></div>
-            </div>
-          </div>
-        ))}
+            )
+          )
+        )}
         <div
           style={{
             height: "20px",
