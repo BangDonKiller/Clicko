@@ -18,15 +18,6 @@ function Signup({ onSwitchPage, onLogin }) {
     email: false,
   });
 
-  // const [formData, setFormData] = useState(
-  //   {
-  //     username: "",
-  //     password: "",
-  //     // passwordConfirm: "",
-  //     email: ""
-  //   }
-  // );
-
   const handleUsernameChange = (event) => {
     setUsername(event.target.value);
     setFormDataInvalid({
@@ -81,7 +72,7 @@ function Signup({ onSwitchPage, onLogin }) {
         setDoc(doc(db, "users", user.uid), {
           email: email,
           name: username,
-          password: window.btoa(password),
+          pd: window.btoa(password),
           score: 1500,
           win: 0,
           lose: 0,
@@ -89,24 +80,10 @@ function Signup({ onSwitchPage, onLogin }) {
           identity: "normal",
           ClickoTime: 5,
         });
-
-        // const userRef = db.collection("users").doc(user.uid);
-        // userRef.set({
-        //   email: email,
-        //   name: username,
-        //   password: password,
-        // })
-        // .then(() => {
-        //   console.log("Document successfully written!");
         onLogin();
-        // })
-        // .catch((error) => {
-        //   console.error("Error writing document: ", error);
-        // });
       })
       .catch((error) => {
         console.log("error: ", error);
-        // alert("Invalid email or password");
         if (error.code === "auth/email-already-in-use") {
           setFormDataInvalid({
             ...formDataInvalid,
