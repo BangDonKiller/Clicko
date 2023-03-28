@@ -6,7 +6,7 @@ import { collection, doc, getDoc } from "firebase/firestore";
 
 function DashBoard() {
   const [userData, setUserData] = useState(null);
-  const navigate = useNavigate(); // initialize the useNavigate hook
+  const navigate = useNavigate();
   useEffect(() => {
     const userInfoCollection = collection(db, "users");
     const currentUser = auth.currentUser;
@@ -38,12 +38,11 @@ function DashBoard() {
 
   const { name, score } = userData;
 
-  // define the handleClick function that navigates to the contest page
   const handleClick = () => {
     const state = {
       userName: name,
-      userScore: score, // replace with the current user's score
-      clickoName: document.getElementById("clicko_name").value, // replace with the Clicko name entered in the input bar
+      userScore: score,
+      clickoName: document.getElementById("clicko_name").value,
     };
     navigate("/contest", { state: state });
   };

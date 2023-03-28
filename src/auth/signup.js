@@ -81,7 +81,7 @@ function Signup({ onSwitchPage, onLogin }) {
         setDoc(doc(db, "users", user.uid), {
           email: email,
           name: username,
-          password: password,
+          password: window.btoa(password),
           score: 1500,
           win: 0,
           lose: 0,
