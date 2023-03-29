@@ -7,23 +7,19 @@ var glicko2 = require("glicko2");
 
 function Contest() {
   const location = useLocation();
-  const { userName, userScore, clickoName, joinCode, userName2 , uid001} = location.state; //pending, userScore2
+  const { userName, userScore, clickoName, joinCode, userName2, uid001 } =
+    location.state; //pending, userScore2
   const [status, setStatus] = React.useState(0);
   const [playingList, setPlayingList] = React.useState([]);
   const [player, setPlayer] = React.useState(true);
   var user2 = "";
   const [uid002, setUID002] = React.useState("");
-  console.log("uid2 "+uid002);
-  console.log("uid1 "+uid001);
 
   const clicko_name = clickoName;
   const join_code = joinCode;
   const user1 = userName;
   let user1_score = userScore;
   let user2_score;
-
-
-  
 
   useEffect(() => {
     if (userName2 === undefined) {
@@ -42,9 +38,6 @@ function Contest() {
             }
           });
           return unsubscribe;
-          // const pendingRef = await getDoc(clickoDoc);
-          // setPlayingList(pendingRef.data());
-          // console.log(pendingRef);
         }
       } catch (e) {
         console.error("Error adding document: ", e);
@@ -57,7 +50,6 @@ function Contest() {
   user2 = player02;
   user2_score = playerScore2;
 
-
   useEffect(() => {
     if (joinCode) {
       try {
@@ -68,7 +60,6 @@ function Contest() {
         console.error("Error adding document: ", e);
       }
     }
-    console.log("Contest Page");
   }, [joinCode]);
 
   var settings = {
@@ -95,8 +86,6 @@ function Contest() {
     user1_score = player1.getRating();
     user2_score = player2.getRating();
 
-    console.log(`New rating for ${user1}: ${user1_score}`);
-    console.log(`New rating for ${user2}: ${user2_score}`);
     await updateDoc(doc(db, "clickos", joinCode), {
       playerScore1: user1_score,
       playerScore2: user2_score,
@@ -110,7 +99,6 @@ function Contest() {
   };
 
   return (
-    console.log(status),
     <div className="contest_pg">
       {status === 0 ? (
         <div className="contest_pending">
@@ -135,17 +123,14 @@ function Contest() {
         </div>
       ) : player ? (
         status === 2 ? (
-          (console.log(matches),
-          (
-            <button
-              className="end-button"
-              onClick={() => {
-                window.history.back();
-              }}
-            >
-              Go back
-            </button>
-          ))
+          <button
+            className="end-button"
+            onClick={() => {
+              window.history.back();
+            }}
+          >
+            Go back
+          </button>
         ) : (
           <div className="contest-loader">
             <div className="loader"></div>
