@@ -150,7 +150,7 @@ function DashBoard() {
           <div className="contest_list" key={clicko.id}>
             <div className="contest_item">
               <div className="contest_title">{clicko.clickoName}</div>
-              <div className="contest_time">{clicko.status}</div>
+              <div className="contest_time">{clicko.status === 0 ? ("pending"):(clicko.status === 1 ? ("waiting"):("end"))}</div>
               {clicko.status === 0 ? (
                 <div className="input-container">
                   <input
@@ -171,7 +171,7 @@ function DashBoard() {
                   </button>
                 </div>
               ) : (
-                <div className="contest_time">{clicko.result}</div>
+                <div className="contest_time">{clicko.result === 0 ? ("user2 won"):(clicko.result === 0.5 ? ("drew"):(clicko.result === 1 ? ("user1 won"):("terminate")))}</div>
               )}
             </div>
             <div className="h-divider">

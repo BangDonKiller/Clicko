@@ -122,7 +122,10 @@ function Contest() {
           <div className="terminate-container">
             <button
               className="end-button"
-              onClick={() => {
+              onClick={async () => {
+                await updateDoc(doc(db, "clickos", joinCode), {
+                  status: 2,
+                });
                 window.history.back();
               }}
             >
@@ -155,8 +158,8 @@ function Contest() {
             onClick={async () => {
               updateScores("User1");
               await updateDoc(doc(db, "clickos", joinCode), {
-                status: 2,
-                result: 1,
+                status: 2, // end game
+                result: 1, // user1 won
               });
               window.history.back();
             }}
@@ -168,8 +171,8 @@ function Contest() {
             onClick={async () => {
               updateScores("draw");
               await updateDoc(doc(db, "clickos", joinCode), {
-                status: 2,
-                result: 0.5,
+                status: 2, // end game
+                result: 0.5, // draw
               });
               window.history.back();
             }}
@@ -181,8 +184,8 @@ function Contest() {
             onClick={async () => {
               updateScores("User2");
               await updateDoc(doc(db, "clickos", joinCode), {
-                status: 2,
-                result: 0,
+                status: 2, // end game
+                result: 0, // user2 won
               });
               window.history.back();
             }}
