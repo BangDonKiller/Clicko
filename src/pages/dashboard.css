@@ -385,3 +385,19 @@
   }
 
 }
+
+@media screen and (max-width: 340px) {
+  .light-loader{
+    top: 60%;
+  }
+
+  .add_contest{
+    margin-top: 120%;
+    width: 80%;
+    margin-right: 0em;
+  }
+
+  .clicko_name{
+    width: 120px;
+  }
+}
