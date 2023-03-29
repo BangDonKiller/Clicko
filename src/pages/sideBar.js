@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import avatar from "./avatar.png";
 import "./sideBar.css";
 import { db, auth } from "../backend/firebase";
-import { collection, doc, getDoc } from "firebase/firestore";
+import { collection, doc, onSnapshot } from "firebase/firestore";
 import { Link } from "react-router-dom";
 
 function SideBar() {
@@ -17,22 +17,34 @@ function SideBar() {
     const userInfoCollection = collection(db, "users");
     const currentUser = auth.currentUser;
 
-    const getUserInfo = async () => {
-      try {
-        const userDoc = doc(userInfoCollection, currentUser.uid);
-        const userData = await getDoc(userDoc);
-
-        if (userData.exists()) {
-          setUserData(userData.data());
-          setScore(userData.data().score.toFixed(2));
-        } else {
-          console.log("No such user document!");
-        }
-      } catch (error) {
-        console.log(error);
+    const userDoc = doc(userInfoCollection, currentUser.uid);
+    const unsubscribe = onSnapshot(userDoc, (userData) => {
+      if (userData.exists()) {
+        setUserData(userData.data());
+        setScore(userData.data().score.toFixed(2));
+      } else {
+        console.log("No such user document!");
       }
-    };
-    getUserInfo();
+    });
+
+    return unsubscribe; // Cleanup the listener on unmount
+
+    // const getUserInfo = async () => {
+    //   try {
+    //     const userDoc = doc(userInfoCollection, currentUser.uid);
+    //     const userData = await getDoc(userDoc);
+
+    //     if (userData.exists()) {
+    //       setUserData(userData.data());
+    //       setScore(userData.data().score.toFixed(2));
+    //     } else {
+    //       console.log("No such user document!");
+    //     }
+    //   } catch (error) {
+    //     console.log(error);
+    //   }
+    // };
+    // getUserInfo();
   }, []);
 
   if (!userData) {
@@ -43,7 +55,7 @@ function SideBar() {
     );
   }
 
-  const { name, email} = userData;
+  const { name, email } = userData;
 
   return (
     <nav className="menu" tabIndex="0">
