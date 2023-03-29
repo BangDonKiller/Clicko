@@ -318,6 +318,10 @@
     width: 75%;
     margin-right: 0%;
   }
+
+  .clicko_name{
+    width: 350px;
+  }
 }
 
 
@@ -331,6 +335,10 @@
   .create_clicko{
     margin-right: 4em;
     width: 70%;
+  }
+
+  .clicko_name{
+    width: 250px;
   }
 }
 

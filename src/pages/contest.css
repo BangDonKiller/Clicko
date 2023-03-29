@@ -115,4 +115,8 @@
   transform: translateY(2px);
 }
 
-
+@media screen and (max-width: 900px) {
+  .contest_pg {
+    width: 100%;
+  }
+}
