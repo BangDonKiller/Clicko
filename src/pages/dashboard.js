@@ -85,6 +85,10 @@ function DashBoard() {
     if (inputValue !== clickoId) {
       alert("Wrong Code !!!");
       return;
+    } else if 
+    (auth.currentUser.uid === clickos.find((clicko) => clicko.id === clickoId).uid001){
+      alert("You can't join your own Clicko");
+      return;
     } else {
       updateDoc(doc(db, "clickos", clickoId), { 
         status: 1,
