@@ -36,7 +36,7 @@ function Ranking() {
           <div key={user.id} className={`place_${index + 1}`}>
             <img src={avatar} alt="Avatar" className="avatar" />
             <div className="player_name">{user.name}</div>
-            <div className="player_score">- {user.score} pts -</div>
+            <div className="player_score">- {user.score.toFixed(2)} pts -</div>
           </div>
         ))}
       </section>
@@ -46,7 +46,7 @@ function Ranking() {
             <div className="user_ranking">
               <div className="ranking_num">{index + 4}. </div>
               <div className="ranking_name">{user.name}</div>
-              <div className="ranking_score">{user.score} pts</div>
+              <div className="ranking_score">{user.score.toFixed(2)} pts</div>
             </div>
             {index !== users.length - 4 && <b className="hr anim"></b>}
           </React.Fragment>

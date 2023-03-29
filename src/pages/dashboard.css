@@ -156,16 +156,10 @@
 
 /* join code input ended */
 
-
-
-
-
-
-
   .add_contest{
     min-height: 450px;
     margin-top: 20px;
-    max-width: 25%;
+    width: 25%;
     padding: 1rem;
     background-color: #fff;
     border-radius: 10px;
@@ -250,4 +244,136 @@
 .clicko_name:focus, .clicko_name:focus-visible {
   border-color: #3898EC;
   outline: none;
+}
+
+@media screen and (max-width: 1300px){
+  .add_contest{
+    width: 30%;
+  }
+
+  .clicko_name {
+    width: 250px;
+  }
+
+}
+
+
+@media screen and (max-width: 1240px){
+
+  .add_contest{
+    width: 31%;
+  }
+}
+
+@media screen and (max-width: 1100px){
+  .add_contest{
+    width: 34%;
+  }
+}
+
+
+@media screen and (max-width: 1050px){
+  .add_contest{
+    width: 37%;
+  }
+}
+
+@media screen and (max-width: 900px){
+  .dashboard_bg{
+    background-color: rgb(61, 61, 61);
+    height: 100%;
+    width: calc(100% - 90px);
+    margin-left: 90px;
+}
+  .add_contest{
+    width: 43%;
+  }
+}
+
+@media screen and (max-width: 860px){
+  .dashboard_bg{
+    /* background-color: rgb(233, 58, 58); */
+    height: 150vh;
+    width: calc(100% - 90px);
+    margin-left: 90px;
+  }
+  .notifications{
+    display: none;
+  }
+
+  .contest_board{
+    /* background-color: rgb(219, 143, 143); */
+    margin-top: 0px;
+    width: 90%;
+    height: 45%;
+    margin-left: 3%;
+  }
+
+  .create_clicko{
+    margin-right: 3em;
+  }
+
+  .add_contest{
+    margin-top: 50%;
+    width: 75%;
+    margin-right: 0%;
+  }
+}
+
+
+@media screen and (max-width: 680px){
+  .add_contest{
+    margin-top: 85%;
+    width: 70%;
+    margin-right: -10px;
+  }
+
+  .create_clicko{
+    margin-right: 4em;
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 500px){
+  .add_contest{
+    margin-top: 80%;
+    width: 65%;
+    margin-right: 2px;
+  }
+
+  .create_clicko{
+    margin-right: 3em;
+  }
+
+  .clicko_name{
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 440px){
+  .add_contest{
+    margin-top: 90%;
+    width: 65%;
+    margin-right: -11px;
+  }
+}
+
+@media screen and (max-width: 400px){
+  .contest_board{
+    margin-left: 1%;
+  }
+  .dashboard_bg{
+    /* background-color: rgb(233, 58, 58); */
+    height: 150vh;
+    margin-top: 0;
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .add_contest{
+    margin-top: 110%;
+    width: 80%;
+    margin-right: 0.5em;
+  }
+
 }
