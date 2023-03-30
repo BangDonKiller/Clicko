@@ -236,14 +236,17 @@
   outline: none;
 }
 
-@media screen and (max-width: 1800px) {
+@media screen and (max-width: 2000px) {
   .add_contest {
     width: 20%;
+  }
+  .contest_board {
+    width: calc(100% - 30%);
   }
 
 
   .clicko_name {
-    width: 250px;
+    width: 220px;
   }
 }
 
@@ -256,14 +259,18 @@
     width: 25%;
   }
 
+  .contest_board {
+    width: calc(100% - 40%);
+  }
+
   .clicko_name {
-    width: 250px;
+    width: 210px;
   }
 }
 
-@media screen and (max-width: 1240px) {
-  .add_contest {
-    width: 31%;
+@media screen and (max-width: 1300px) {
+  .clicko_name {
+    width: 200px;
   }
 }
 
@@ -370,7 +377,7 @@
   }
 
   .add_contest {
-    margin-top: 110%;
+    margin-top: 125%;
     width: 75%;
     margin-right: calc((100% - 90%) / 2);
   }
@@ -382,7 +389,7 @@
 
 @media screen and (max-width: 800px){
   .add_contest {
-    margin-top: 123%;
+    margin-top: 140%;
     width: 75%;
     margin-right: calc((100% - 92%) / 2);
   }
@@ -395,7 +402,7 @@
 
 @media screen and (max-width: 720px){
   .add_contest {
-    margin-top: 133%;
+    margin-top: 153%;
     width: 75%;
     margin-right: calc((100% - 95%) / 2);
   }
@@ -408,7 +415,7 @@
   }
 
   .add_contest {
-    margin-top: 150%;
+    margin-top: 160%;
     width: 70%;
     margin-right: calc((100% - 90%) / 2);
   }
@@ -425,14 +432,14 @@
 
 @media screen and (max-width: 590px) {
   .add_contest {
-    margin-top: 165%;
+    margin-top: 185%;
     margin-right: calc((100% - 95%) / 2);
   }
 }
 
 @media screen and (max-width: 530px) {
   .add_contest {
-    margin-top: 185%;
+    margin-top: 200%;
     margin-right: calc((100% - 99%) / 2);
   }
   
@@ -440,7 +447,7 @@
 
 @media screen and (max-width: 490px) {
   .add_contest {
-    margin-top: 200%;
+    margin-top: 250%;
     width: 65%;
     margin-right: 2px;
   }
@@ -467,7 +474,7 @@
 
 @media screen and (max-width: 440px) {
   .add_contest {
-    margin-top: 225%;
+    margin-top: 260%;
     width: 65%;
     margin-right: 0px;
   }
