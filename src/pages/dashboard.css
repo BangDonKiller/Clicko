@@ -236,10 +236,11 @@
   outline: none;
 }
 
-@media screen and (max-width: 1700px) {
-  .contest_board {
-    width: calc(100% - 30%- 400px);
+@media screen and (max-width: 1800px) {
+  .add_contest {
+    width: 20%;
   }
+
 
   .clicko_name {
     width: 250px;
@@ -247,10 +248,12 @@
 }
 
 
-@media screen and (max-width: 1300px) {
+
+
+@media screen and (max-width: 1600px) {
   
   .add_contest {
-    width: 30%;
+    width: 25%;
   }
 
   .clicko_name {
