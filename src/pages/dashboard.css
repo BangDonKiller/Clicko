@@ -293,13 +293,8 @@
 @media screen and (max-width: 990px){
   .coffee-card {
     margin-left: 10px;
-    max-height: 145px;
+    max-height: 150px;
     margin-top: 10px;
-    max-width: 25%;
-    padding: 1rem;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.05);
   }
 
 }
@@ -467,6 +462,9 @@
 }
 
 @media screen and (max-width: 400px) {
+  .coffee-card{
+    margin-left: calc((100% - 85%) / 2);
+  }
   .contest_board {
     /* margin-left: -5%; */
     height: 25%;
@@ -502,7 +500,7 @@
 
 @media screen and (max-width: 350px) {
   .coffee-card {
-    margin-left: 0.5em;
+    margin-left: calc((100% - 83%) / 2);
   }
   .light-loader {
     top: 60%;
