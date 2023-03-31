@@ -67,7 +67,7 @@ function Signup({ onSwitchPage, onLogin }) {
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
-        console.log("user: ", user);
+        // console.log("user: ", user);
         // Add user's email and name to Firestore
         setDoc(doc(db, "users", user.uid), {
           email: email,
@@ -114,9 +114,7 @@ function Signup({ onSwitchPage, onLogin }) {
         }
       });
 
-    console.log(
-      `Submitted username: ${username}, password: ${password}, email: ${email}`
-    );
+    // console.log(`Submitted username: ${username}, password: ${password}, email: ${email}`);
   };
 
   return (

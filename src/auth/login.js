@@ -25,7 +25,7 @@ function Login({ onSwitchPage, onLogin }) {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
-        console.log("user: ", user);
+        // console.log("user: ", user);
         // alert("Login successful");
         onLogin();
       })
@@ -42,7 +42,7 @@ function Login({ onSwitchPage, onLogin }) {
         }
       });
 
-    console.log(`Submitted email: ${email}, password: ${password}`);
+    // console.log(`Submitted email: ${email}, password: ${password}`);
   };
 
   return (
