@@ -1,73 +1,57 @@
-# Clicko (Beta version)
+# Clicko
+This is a website that helps people hold competitions and display the ranking of people using this system. The score of each user is determined by **Glicko rating system**.
+**NOTED: The initial score for every user is 1500pts**
 
 
-## Getting Started with Create React App
+## Landing Page
+This is the page that user access this website at the very first time or not login yet.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Log In Page
+- This page will be displayed if user, who did not have a login record on the device, enter this website by the URL.
+    ![Hysrrp_P3](https://github.com/whiteSHADOW1234/SimpleClicko/assets/91242001/dcf51d1b-9e7c-4b4e-b3bd-0d8ecd6b580a)
+### Sign Up Page
+- By pressing the text button (`Do not have an account? Sign up now`) under the **Login** button, user can access this webpage.
+    ![ByI_SauD3](https://github.com/whiteSHADOW1234/SimpleClicko/assets/91242001/96c71c23-ed9f-4f83-8f07-214c9eb41941)
+    **NOTED: The password must have at least 6 characters !!!**
 
-## Available Scripts
+## Main Pages, Functions, and Components
 
-In the project directory, you can run:
+### SideBar
+- This helps user easly to direct to other webpages and check current user status, which including...
+    - User Basic Info:
+        An avatar (which have a yellow frame around it) with user name, user gmail, and current Glicko points. 
+    - Navagate Button:
+        DashBoard button move user to the dashboard page
+        Ranking button move user to the ranking page
+        Log out button let user log out the account
+        Other gray buttons are up comimg features that will be done later (welcome to contribute ~ :smile:)
+    ![ryoRd6uP2](https://github.com/whiteSHADOW1234/SimpleClicko/assets/91242001/35614e74-a4f0-421b-8fc3-70e067f3aaee)
 
-### `npm start`
+    
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Dashboard
+- The first display screen while user login his/her account.
+    - It contains the up three notifications including a bug report, user wanted, and a donation notice.
+    - Under the three notifications, there are a dashboard (which will be a TODO gif if there's no any competition is held)
+    - There's a Clicko-Create block beside the dashboard section. It enable user to hold a clicko competition by offering the name and hit start button. 
+        - The pink rounded icon is a css animation which is the main feature of this website :laughing:
+    ![B1eDNa_wh](https://github.com/whiteSHADOW1234/SimpleClicko/assets/91242001/86a28418-29b3-4c48-bcdd-af69d91a1dbe)
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Ranking
+- This page is shown by the score of each user who is using this system
+    - Only the top 3 place will be displayed at the top of this webpage with avatars, user name, and current points. 
+    - Others will be display on a scorllable block which order is decided by the user's score (highest to the lowest).
+    ![r1VMT6OD2](https://github.com/whiteSHADOW1234/SimpleClicko/assets/91242001/7b436cdc-5f5a-48d4-b700-fe290cffd106)
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Other Functions
+~ Up Coming Features (Welcome to contribute to this project) ~
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Special Pages && Functions
+<details>
+<summary>Normal users should not look this !!!</summary>
+Reset all the data except the basic user information can be triggered by tapping the username 100 times.
+</details>
