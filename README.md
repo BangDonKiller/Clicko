@@ -1,9 +1,13 @@
-# Clicko (Beta version)
+# Clicko
 This is a React website that helps people hold competitions and display the ranking of people using this system. The score of each user is determined by **Glicko rating system**. So if you want to run this in your local machine, please `git clone` this repository and run `npm start` on your computer.
 
 **NOTED 1: Remember to change the firebase.js which is under the `src/backend` folder**
 
 **NOTED 2: The initial score for every user is 1500pts**
+
+## Icon
+![iconc-removebg-preview](https://github.com/whiteSHADOW1234/Clicko/assets/91242001/be401bb2-8dc9-4efe-9bd8-ce20a44c0553)
+
 
 
 ## Landing Page
