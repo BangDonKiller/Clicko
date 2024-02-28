@@ -9,6 +9,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import { Route, Routes } from "react-router-dom";
 import Ranking from "./pages/ranking";
 import Contest from "./pages/contest";
+import Forum from "./pages/forum";
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -47,6 +48,7 @@ function App() {
                 <Route path="/" element={<DashBoard/>} />
                 <Route path="/ranking" element={<Ranking/>} />
                 <Route path="/contest" element={<Contest/>} />
+                <Route path="/forum" element={<Forum/>} />
               </Routes>
             </div>
           ) : (

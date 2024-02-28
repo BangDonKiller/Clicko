@@ -30,12 +30,12 @@ function SideBar() {
     try {
       const clickoCollection = collection(db, "clickos");
       const snapshot = await getDocs(clickoCollection);
-  
+
       const batch = writeBatch(db);
       snapshot.forEach((doc) => {
         batch.delete(doc.ref);
       });
-  
+
       await batch.commit();
       console.log("Database reset successful: All elements in 'clickos' collection have been deleted.");
 
@@ -53,7 +53,7 @@ function SideBar() {
       console.error("Error resetting database:", error);
     }
   };
-  
+
 
   useEffect(() => {
     const userInfoCollection = collection(db, "users");
@@ -129,14 +129,18 @@ function SideBar() {
             <span>Ranking</span>
           </li>
         </Link>
-        <li
-          tabIndex="0"
-          className="icon-forum"
-          style={{ color: "#808080", backgroundColor: "#696969" }}
-        >
-          <i className="fa fa-comments-o" aria-hidden="true"></i>{" "}
-          <span>Forum</span>
-        </li>
+
+        {/* working on it */}
+        <Link style={{ textDecoration: "none", color: "white" }} to="/forum">
+          <li
+            tabIndex="0"
+            className="icon-forum"
+            // style={{ color: "#808080", backgroundColor: "#eeeeee" }}
+          >
+            <i className="fa fa-comments-o" aria-hidden="true"></i>{" "}
+            <span>Forum</span>
+          </li>
+        </Link>
         <li
           tabIndex="0"
           className="icon-users"
