@@ -10,24 +10,31 @@ function Forum() {
         "HELLO?": "I am planning to buy a coffee machine for my home. Can anyone suggest me a good coffee machine?",
     });
 
-    const [selectedProperty, setSelectedProperty] = useState([]);
+    const [selectedProperties, setSelectedProperties] = useState([]);
     const [showAddWindow, setShowAddWindow] = useState(false);
+    const [title, setTitle] = useState("");
+    const [content, setContent] = useState("");
+    const [selectedDiscussionProperties, setSelectedDiscussionProperties] = useState({});
 
+    // Function to handle property selection
     const handlePropertySelection = (property) => {
-        setSelectedProperty(property);
+        if (selectedProperties.includes(property)) {
+            setSelectedProperties(selectedProperties.filter(p => p !== property));
+        } else {
+            setSelectedProperties([...selectedProperties, property]);
+        }
     }
-
 
     const Add_discussion = () => {
         setShowAddWindow(true); // Show the add_window when Add Discussion button is clicked
-        document.body.style.overflow = 'hidden'; // Disable scrolling
     }
 
     const cancelAddDiscussion = () => {
         setShowAddWindow(false); // Hide the add_window
-        document.body.style.overflow = 'auto'; // Enable scrolling
+        setTitle("");
+        setContent("");
+        setSelectedProperties([]);
     }
-
 
     const [selectedDiscussions, setSelectedDiscussions] = useState([]);
 
@@ -50,6 +57,22 @@ function Forum() {
         setSelectedDiscussions([]);
     };
 
+    const Add_Comment = () => {
+        if (title && content) {
+            const updatedDiscussion = { ...discussion };
+            updatedDiscussion[title] = content;
+            setDiscussion(updatedDiscussion);
+            setShowAddWindow(false);
+            setSelectedDiscussionProperties(prevState => ({
+                ...prevState,
+                [title]: selectedProperties
+            }));
+            setTitle("");
+            setContent("");
+            setSelectedProperties([]);
+        }
+    }
+
     return (
         <div className="forum_bg">
             <div className={`forum_container ${showAddWindow ? 'blurred' : ''}`}>
@@ -65,6 +88,16 @@ function Forum() {
                                         onChange={() => toggleDiscussion(key)}
                                     />
                                     <a href="#" className="discussion_title">{key}</a>
+                                    
+                                    {/* Display selected properties for the added discussion */}
+                                    {selectedDiscussionProperties[key] &&
+                                        <div className="selected_properties">
+                                            {selectedDiscussionProperties[key].map((property, index) => (
+                                                <span key={index}>{property}</span>
+                                            ))}
+                                        </div>
+                                    }
+                                    
                                     <span className="discussion_state">
                                         <i className="fa fa-comment"></i>
                                     </span>
@@ -80,15 +113,17 @@ function Forum() {
             {showAddWindow && (
                 <div className="add_window">
                     <p>
-                        <h1>Enter your problem : </h1>
-                        <input type="text" id="discussion_title" placeholder="Title" />
+                        <h1 className="problem_title">Enter your problem : </h1>
+                        <input type="text" placeholder="Title" value={title} onChange={(e) => setTitle(e.target.value)} />
+                        <h1 className="problem_content">Enter Content : </h1>
+                        <textarea placeholder="Content" value={content} onChange={(e) => setContent(e.target.value)} />
                         <span>Choose property</span>
                         <div className="property-buttons">
-                            <button onClick={() => handlePropertySelection("Property 1")}>Property 1</button>
-                            <button onClick={() => handlePropertySelection("Property 2")}>Property 2</button>
-                            <button onClick={() => handlePropertySelection("Property 3")}>Property 3</button>
+                            <button className={selectedProperties.includes("Property 1") ? "selected" : ""} onClick={() => handlePropertySelection("Property 1")}>Property 1</button>
+                            <button className={selectedProperties.includes("Property 2") ? "selected" : ""} onClick={() => handlePropertySelection("Property 2")}>Property 2</button>
+                            <button className={selectedProperties.includes("Property 3") ? "selected" : ""} onClick={() => handlePropertySelection("Property 3")}>Property 3</button>
                         </div>
-                        <button className="add_window_confirm">Confirm</button>
+                        <button className="add_window_confirm" onClick={Add_Comment}>Confirm</button>
                         <button className="close_add_window" onClick={cancelAddDiscussion}>Cancel</button>
                     </p>
                 </div>
